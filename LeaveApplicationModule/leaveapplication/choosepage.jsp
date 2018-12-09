@@ -43,20 +43,6 @@
 
             <div class="l-list">
                 <ul class="icon-list">
-                    <%--<li>
-                        <a class="all"  onclick="checkAll(this);"><i></i><span>全选</span></a>
-                    </li>
-                    <li>
-                        <a class="add" onclick="return ShowAction();"><i></i><span>添加</span></a>
-                    </li>
-                    <li>
-                        <a onclick="return ExePostBack(&#39;btnDelete&#39;);"
-                           id="btnDelete" class="del"><i></i><span>删除</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="save" onclick="return ShowSaveAction();"><i></i><span>弹出窗口</span></a>
-                    </li>--%>
                     <li>
                         <a id="lbtnSearch" class="btn-search" onclick="ui_listReqInfos();"><i></i><span>查询</span></a>
                     </li>
@@ -117,27 +103,10 @@
     <%--</div>--%>
 </script>
 <script type="text/javascript">
-    var zTree = null;
     var result;
     var page_current=1;
     var page_size=0;
     var page_interval=10;
-    var right_click_node = {
-        id: '',
-        name: '',
-        parent_id: '',
-        parent_name: ''
-    };
-    function chooseNode(treeNode) {
-        right_click_node.id = treeNode.id;
-        right_click_node.name = treeNode.name;
-        right_click_node.parent_id = treeNode.parent_id;
-        var parentTreeNode = treeNode.getParentNode();
-        if (parentTreeNode)
-            right_click_node.parent_name = parentTreeNode.name;
-        else
-            right_click_node.parent_name = "";
-    }
 
     function ui_listReqInfos() {
         page_size=$("#txtPageNum").val();
@@ -155,11 +124,8 @@
         listReqInfos(queryCallBack);
     }
     function pageChangeCallback (pageid){
-        alert("跳转到"+pageid);
         page_current=pageid;
         ui_listReqInfos();
-        //	 var htmlMsg2=OutPageListAjax(10,  pageid,  25,  pageChangeCallback,  10);
-        //	$("#PageContent").html(htmlMsg2);
     }
     function listReqInfos(callBackList){
         var head = {
@@ -288,177 +254,6 @@
         }
         return re;
     }
-    function createTree(){
-        var head={
-            "service_name":"MemberService",
-            "operation_name":"getDeptTree"
-        };
-        var param={
-            "all": true
-        };
-        var options = {
-            "handleError": false
-        };
-        function callBack(data){
-            resizeTree();
-            if(zTree != null){
-                zTree.destroy();
-            }
-            zTree = $.fn.zTree.init($("#tree"),setting,data);
-            var rootNode = zTree.getNodes()[0];
-            if(rootNode && rootNode.children && rootNode.children.length > 0){
-                var node = rootNode.children[0];
-                if (node) {
-                    zTree.selectNode(node, true);
-                    zTree.cancelSelectedNode(node);
-                }
-            }
-
-        };
-        $.ServiceAgent.JSONInvoke(head, param, callBack, options);
-    }
-
-    function dropPrev(treeId, nodes, targetNode) {
-        if (targetNode.id == "101")
-            return false; //不能插入到根节点之前
-
-        return true;
-    }
-
-    function dropNext(treeId, nodes, targetNode) {
-        if (targetNode.id == "101")
-            return false; //不能插入到根节点之后
-        return true;
-    }
-
-    function dropInner(treeId, nodes, targetNode) {
-        return true;
-    }
-
-    var setting = {
-        edit: {
-            enable: true,
-            showRemoveBtn: false,
-            showRenameBtn: false,
-            drag: {
-                isCopy: true,
-                isMove: true,
-                prev: dropPrev,
-                inner: dropInner,
-                next: dropNext
-            }
-        },
-
-        data: {
-            simpleData: {
-                enable: true,
-                idKey: "id",
-                pIdKey: "parent_id",
-                rootPId: 0
-            },
-            key: {
-                name: "dis_name"
-            }
-        },
-
-        callback: {
-            beforeDrag: function(treeId, treeNodes) {
-                if (treeNodes) {
-                    var treeNode = treeNodes[0];
-                    if (treeNode.getParentNode() == null)
-                        return false;
-                }
-                return true;
-            },
-
-            beforeDragOpen: function(treeId, treeNode) {
-                return false;
-            },
-
-            beforeDrop: function(treeId, treeNodes, targetNode, moveType) {
-                if (targetNode) {
-                    moveApp(treeNodes[0], targetNode, moveType);
-                    return true;
-                }
-                return false;
-            },
-
-            onDrop: function(event, treeId, treeNodes, targetNode, moveType) {
-                if (targetNode) {
-                    return true;
-                }
-                return false;
-            },
-
-            beforeClick: function(treeId, treeNode, clickFlag) {
-                return true;
-            },
-
-            onClick: function(callEvent, treeId, treeNode, clickFlag) {
-                if (treeNode)
-                    onClickTree(treeNode);
-                return true;
-            },
-            onRightClick: function(callEvent, treeId, treeNode) {
-                if (treeNode) {
-                    zTree.selectNode(treeNode, false);
-                    onClickTree(treeNode);
-                    showRMenu(treeNode, callEvent.clientX, callEvent.clientY);
-                }
-                return true;
-            }
-        },
-
-        view: {
-            nameIsHTML: true,
-            showTitle: false,
-            selectedMulti: false
-        }
-    };
-
-    //单击树节点时
-    function onClickTree(treeNode) {
-        //保存节点相关信息，供其他页面调用
-        chooseNode(treeNode);
-        var id = treeNode.id.toString();
-        var cutStr = id.substring(0, 1);
-        var cutId = id.substring(1);
-        if (id != "101") {
-            if (cutStr == "c") {
-                $.form("#contactForm").sleep();
-                $("#treeParentArea").show();
-alert(cutStr)
-                //getStaffDetail(cutId, treeNode);
-            } else {
-
-                $.form("#tableForm").sleep();
-                $("#treeParentArea").show();
-alert(cutStr)
-                //getFunDetail(id, treeNode);
-            }
-        }
-
-    }
-    function resizeTree() {
-
-        if ($.browser.msie) {
-            if ($.browser.version == "10.0") {
-                $("#treeParentArea")
-                    .height($(document.body).height() - 23 - 45);
-                $("#treeParentArea").width($("#search_key").width() * 10 / 7);
-                $("#tree").height($("#treeParentArea").height() - 20);
-                $("#tree").width($("#treeParentArea").width() - 20);
-            } else {
-                $("#treeParentArea")
-                    .height($(document.body).height() - 23 - 62);
-                $("#tree").height($("#treeParentArea").height() - 10);
-            }
-        } else {
-            $("#treeParentArea").height($(document.body).height() - 23 - 40);
-            $("#tree").height($("#treeParentArea").height() - 40);
-        }
-
-    }
 
     var diag;
     function ShowSaveAction(){
@@ -539,5 +334,6 @@ alert(cutStr)
 <script type="text/javascript">
     //dynamicLoading.css("../assets/css/main.css");
 </script>
+<script src="deptTreeJs.js"></script>
 </body>
 </html>
