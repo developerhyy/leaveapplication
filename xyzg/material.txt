@@ -12,3 +12,15 @@ http://49.4.80.120:8001/xyzg/system/login.jsp admin/Aa000000 Õâ¸öÊÇÔÆÆ½Ì¨µÄµØÖ·£
 https://v5i2xx.axshare.com pwd:123456
 
 Ò³ÃæÄ£°å http://49.4.80.120:8001/xyzg/test/index.jsp
+
+·şÎñÆ÷×°ºÃÁË 
+ĞÂ·şÎñÆ÷µØÖ·http://117.27.151.130:10202/xyzg/system/login.jsp?menu_type=AccordMenu#
+SSH: wifino1.yourslink.com
+
+Port: 10022
+
+UserName: xiaoh
+
+Password: chinese
+Â·¾¶£º/home/xiaoh/attend/app/tomcat7
+Êı¾İ¿âµØÖ·117.27.151.130:13306  chendy/jaco  Êı¾İ¿âÃû£ºattend

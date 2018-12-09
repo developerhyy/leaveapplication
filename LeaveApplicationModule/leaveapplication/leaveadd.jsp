@@ -57,7 +57,7 @@
             <dd>
                 <div  class="input-date" style="width: 320px">
                     <input name="txtbeginDate" type="text" id="begindate" class="input date Validform_error"
-                           onfocus="WdatePicker({dateFmt:'yyyy-MM-dd 00:00:00'})" errormsg="请选择正确的日期" onblur="checkDate();" style = "width:300px"/>
+                           onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" errormsg="请选择正确的日期" onblur="checkDate();" style = "width:300px"/>
                 </div>
                 <span class="Validform_checktip">*必填</span>
             </dd>
@@ -67,7 +67,7 @@
             <dd>
                 <div  class="input-date" style="width: 320px">
                     <input name="txtendDate" type="text" id="enddate" class="input date Validform_error"
-                           onfocus="WdatePicker({dateFmt:'yyyy-MM-dd 23:59:59'})" errormsg="请选择正确的日期" onblur="checkDate();" style = "width:300px"/>
+                           onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" errormsg="请选择正确的日期" onblur="checkDate();" style = "width:300px"/>
                 </div>
                 <span class="Validform_checktip">*必填</span>
             </dd>
@@ -76,7 +76,7 @@
             <dt>时长</dt>
             <dd>
                 <div style="float: left;">
-                    <input type="text" name="duration" id="duration" for="totalday" class="input normal" />
+                    <input type="text" name="duration" readonly="readonly" id="duration" for="totalday" class="input normal" />
                     <span>总可休假<span id="days"></span>天,剩余休假天数<span id="leftday"></span>天</span>
                 </div>
             </dd>
@@ -181,8 +181,8 @@
         <script type="text/javascript">
             function checkDate(){
                 setTimeout(function(){
-                    var beginTime=new Date($("#begindate").val().replace(/-/g,"/"));
-                    var endTime=new Date($("#enddate").val().replace(/-/g,"/"));
+                    var beginTime=new Date(($("#begindate").val()+" 00:00:00").replace(/-/g,"/"));
+                    var endTime=new Date(($("#enddate").val()+" 23:59:59").replace(/-/g,"/"));
                     if(beginTime=="Invalid Date" || endTime=="Invalid Date")return;
                     if(endTime.getTime()-beginTime.getTime()<0){
                         return;
@@ -236,7 +236,6 @@
                         "end_time":$("#enddate").val(),
                         "reason":$("#reason").val(),
                         "sts":0
-                        //TODO bz_auditing_flow审核流程表 bz_auditing_detail 审核明细表 处理
                     }
                 }
                 var beginTime=new Date($("#begindate").val().replace(/-/g,"/"));
@@ -255,7 +254,7 @@ console.log(param);
                     alert(data);
                     if(data.response_code==0){
                         alert(data.response_desc);
-                        submitAudit(data.content.result);
+                        submitAuditFlow(data.content.result);
                         parent.$("#leave").html("");
                         parent.query();
                         parent.diag.close();
