@@ -12,16 +12,26 @@ import cn.dy.base.framework.esb.def.RepMessage;
  */
 public interface SeniorityService {
     @ESBAnnotation(
-            names={"dept", "gender", "query", "pageNum", "pageSize"},
+            names={"deptId", "gender", "query", "pageNum", "pageSize"},
             req_login = false
     )
-    RepMessage querySeniority(String dept, String gender, String query, long pageNum, long pageSize);
+    RepMessage querySeniority(long deptId, String gender, String query, long pageNum, long pageSize);
     @ESBAnnotation(
-            names={"userId"},
+            names={"staff_id"},
             req_login = false
     )
-    RepMessage getLeftFurloughDays(String userId);
+    RepMessage getLeftFurloughDays(String staff_id);
     class SeniorityServiceParam{
+        private long deptId;
+
+        public long getDeptId() {
+            return deptId;
+        }
+
+        public void setDeptId(long deptId) {
+            this.deptId = deptId;
+        }
+
         private String dept;
         private String gender;
         private String query;

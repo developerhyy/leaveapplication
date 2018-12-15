@@ -5,11 +5,92 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
     <title>新增请假</title>
     <jsp:include page="../assets/common_inc_new.jsp" flush="true"></jsp:include>
     <script type="text/javascript">
-        var user_id = loginInfo.staff_id;
+        var staff_id = loginInfo.staff_id;
     </script>
+		<style type="text/css">
+			.Validform_checktip{
+				color: red;
+				margin-right: 10px;
+			font-size: 18px;
+			}
+			dt{
+				margin-right: 40px;
+			}
+			.rule-single-select{
+				width: 400px;
+			}
+			.rule-single-select .boxwrap{
+				width: 100%;
+			}
+			.single-select .select-tit i{
+				border: none !important;
+			}
+			.input.normal{
+				width: 400px;
+			}
+			.Validform_error{
+				background: none !important;
+			}
+			.single-select .select-tit span{
+				color: #999999;
+			}
+			.tab-content dl{
+				margin-bottom: 12px;
+			}
+			.tab-content dl dt{
+				font-size: 18px;
+				font-weight: 400;
+				line-height: 30px;
+				margin-left: 30px;
+			}
+			.single-select .select-items{
+				width: 400px;
+			}
+			.btn{
+				margin-right: 20px;
+			}
+			.btn,.btn:hover{
+				background: #dcf0ff;
+				color:#000000;
+				width: 100px;
+				height: 35px;
+				border-radius: 4px;
+			}
+			
+				.btn-ok{
+					background: #FFFFFF;
+					margin-right: 40px;
+					width: 120px;
+					height: 40px;
+					border: 1px solid #999999;
+			}
+			.btn-ok:hover{
+				background: #3296fa;
+				border-color: #3296fa;
+				width: 120px;
+				height: 40px;
+			}
+			.page-footer .btn-list{
+				padding-left: 255px;
+				
+			}
+		.WdateDiv {
+    width: 400px;
+    box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+		-o-box-sizing: border-box;
+    background-color: #FFFFFF;
+    border: #bbb 1px solid;
+    padding: 2px; 
+}
+		</style>
 </head>
 <body class="mainbody">
 <form  name = "form1" id="form1" method="post" enctype="multipart/form- data">
@@ -26,12 +107,14 @@
     <input type="hidden" id="lib_url" value="template_1.jsp">
     <div class="tab-content" style="padding-bottom: 50px;">
         <dl>
-            <dt>请假类型</dt>
+            <dt><span class="Validform_checktip">*</span>请假类型</dt>
             <dd>
-                <div class="rule-single-select" style="float: left;">
+				<input id="leaveId" type="hidden" value=""/>
+                <input id="flowOldId" type="hidden" value=""/>
+                <div class="rule-single-select" style="float: left;width: 400px;">
                     <select name="leave_type" id="leave_type" datatype="*" sucmsg=" "
                             style="width: 300px;">
-                        <option value="">请选择</option>
+                        <option value="">请选择请假类型</option>
                         <option value="1">事假</option>
                         <option value="2">病假</option>
                         <option value="3">休假</option>
@@ -42,110 +125,110 @@
                     </select>
                 </div>
             </dd>
-            <span class="Validform_checktip">*必填</span>
+            
         </dl>
         <dl>
-            <dt>姓名</dt>
+					
+						<dt><span class="Validform_checktip">*</span>姓名</dt>
             <dd>
                 <input type="text" name="name" id="name" for="name"  class="input normal" sucmsg=" "
-                       maxlength="20"/>
-                <span class="Validform_checktip">*必填</span>
+                      placeholder="请选择姓名" maxlength="20"/>
+               
             </dd>
         </dl>
         <dl>
-            <dt>开始时间</dt>
+					
+            <dt><span class="Validform_checktip">*</span>开始时间</dt>
             <dd>
-                <div  class="input-date" style="width: 320px">
+                <div  class="input-date" >
                     <input name="txtbeginDate" type="text" id="begindate" class="input date Validform_error"
-                           onfocus="WdatePicker({dateFmt:'yyyy-MM-dd 00:00:00'})" errormsg="请选择正确的日期" onblur="checkDate();" style = "width:300px"/>
+                      placeholder="请选择开始时间" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" errormsg="请选择正确的日期" onblur="checkDate();" style = "width:400px"/>
                 </div>
-                <span class="Validform_checktip">*必填</span>
+                
             </dd>
         </dl>
         <dl>
-            <dt>结束时间</dt>
+					
+            <dt><span class="Validform_checktip">*</span>结束时间</dt>
             <dd>
-                <div  class="input-date" style="width: 320px">
+                <div  class="input-date" >
                     <input name="txtendDate" type="text" id="enddate" class="input date Validform_error"
-                           onfocus="WdatePicker({dateFmt:'yyyy-MM-dd 23:59:59'})" errormsg="请选择正确的日期" onblur="checkDate();" style = "width:300px"/>
+                        placeholder="请选择结束时间"   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" errormsg="请选择正确的日期" onblur="checkDate();" style = "width:400px"/>
                 </div>
-                <span class="Validform_checktip">*必填</span>
+                
             </dd>
         </dl>
         <dl>
-            <dt>时长</dt>
+					 
+            <dt> <span class="Validform_checktip">*</span>时长</dt>
             <dd>
                 <div style="float: left;">
-                    <input type="text" name="duration" id="duration" for="totalday" class="input normal" />
-                    <span>总可休假<span id="days"></span>天,剩余休假天数<span id="leftday"></span>天</span>
+                    <input type="text" name="duration" readonly="readonly" id="duration" for="totalday" class="input normal" style="background: #f5f5f5;" />
+                    <span>总可休假<span id="days" style="text-decoration: underline;margin: 0 2px;"></span>天,剩余休假天数<span id="leftday" style="margin:0 2px;text-decoration: underline;"></span>天</span>
                 </div>
             </dd>
         </dl>
 
 
         <dl>
-            <dt>请假事由</dt>
+						
+            <dt><span class="Validform_checktip">*</span>请假事由</dt>
             <dd>
-                <textarea type="text" name="reason" id="reason" for="reason" class="input normal" sucmsg=" "></textarea>
-                <span class="Validform_checktip">*必填</span>
+                <textarea type="text" name="reason" id="reason" for="reason" class="input normal" sucmsg=" " style="width:400px;height: 100px;"></textarea>
+              
             </dd>
         </dl>
         <dl>
-            <dt>一级审批人员</dt>
+						
+            <dt><span class="Validform_checktip">*</span>一级审批人员</dt>
             <dd>
-                <input type="button" name="approver1" id="approver1" userId="" for="approver1" class="btn" sucmsg=" " />
-                <span class="Validform_checktip">*必填</span>
+                <input type="button" name="approver1" id="approver1" userId="" for="approver1" class="btn" sucmsg=" " width="100px" height="35px" />
+               
+									<img name="btnAddapprover" onclick="return ShowAuditAction('user-choose1');" src="img/add.png" width="28px" height="28px" style="cursor: pointer;">
+								
             </dd>
-            <dd>
+            <!-- <dd>
                 <input type="button" name="btnAddapprover" value="增加审批人员" class="btn" onclick="return ShowAuditAction();" />
-            </dd>
+            </dd> -->
         </dl>
         <dl>
-            <dt>二级审批人员</dt>
+            <dt><span class="Validform_checktip">*</span>二级审批人员</dt>
             <dd>
-                <input type="button" name="approver2" id="approver2" for="approver2" class="btn" sucmsg=" " />
-                <span class="Validform_checktip">*必填</span>
+                <input type="button" name="approver2" id="approver2" userId="" for="approver2" class="btn" sucmsg=" " />
+               <img name="btnAddapprover" onclick="return ShowAuditAction('user-choose2');" src="img/add.png" width="28px" height="28px" style="cursor: pointer;">
             </dd>
-            <dd>
-                <input type="button" name="btnAddapprover" value="增加审批人员" class="btn" onclick="ShowAuditAction();" />
-            </dd>
+         
         </dl>
         <dl>
-            <dt>三级审批人员</dt>
+            <dt><span class="Validform_checktip">*</span>三级审批人员</dt>
             <dd>
-                <input type="button" name="approver3" id="approver3" for="approver3" class="btn" sucmsg=" " />
-                <span class="Validform_checktip">*必填</span>
+                <input type="button" name="approver3" id="approver3" userId="" for="approver3" class="btn" sucmsg=" " />
+                <img name="btnAddapprover" onclick="return ShowAuditAction('user-choose3');" src="img/add.png" width="28px" height="28px" style="cursor: pointer;">
             </dd>
-            <dd>
-                <input type="button" name="btnAddapprover" value="增加审批人员" class="btn" onclick="ShowAuditAction();" />
-            </dd>
+            
         </dl>
         <dl>
-            <dt>四级审批人员</dt>
+            <dt><span class="Validform_checktip">*</span>四级审批人员</dt>
             <dd>
-                <input type="button" name="approver4" id="approver4" for="approver4" class="btn" sucmsg=" " />
-                <span class="Validform_checktip">*必填</span>
+                <input type="button" name="approver4" id="approver4" userId="" for="approver4" class="btn" sucmsg=" " />
+               <img name="btnAddapprover" onclick="return ShowAuditAction('user-choose4');" src="img/add.png" width="28px" height="28px" style="cursor: pointer;">
             </dd>
-            <dd>
-                <input type="button" name="btnAddapprover" value="增加审批人员"  class="btn" onclick="ShowAuditAction();" />
-            </dd>
+           
         </dl>
         <dl>
-            <dt>五级审批人员</dt>
+            <dt><span class="Validform_checktip">*</span>五级审批人员</dt>
             <dd>
-                <input type="button" name="approver5" id="approver5" for="approver5" class="btn" sucmsg=" " />
-                <span class="Validform_checktip">*必填</span>
+                <input type="button" name="approver5" id="approver5" userId="" for="approver5" class="btn" sucmsg=" " />
+								<img name="btnAddapprover" onclick="return ShowAuditAction('user-choose5');" src="img/add.png" width="28px" height="28px" style="cursor: pointer;">
             </dd>
-            <dd>
-                <input type="button" name="btnAddapprover" value="增加审批人员" class="btn" onclick="ShowAuditAction();" />
-            </dd>
+            
         </dl>
 
         <!--工具栏-->
         <div class="page-footer">
             <div class="btn-list">
-                <input type="button" name="btnSubmit" value="保存" id="btnSubmit" class="btn" onclick="doCommit();"/>
-                <input type="button" name="btnReturn" value="取消" class="btn yellow" onclick="doReturn();" />
+                <input type="button" name="btnSubmit" value="提交审批" id="btnSubmit" class="btn btn-ok" onclick="doCommit();"/>
+                <input type="button" name="btnReturn" value="取消" class="btn btn-ok" onclick="doReturn();" />
             </div>
             <div class="clear"></div>
         </div>
@@ -178,11 +261,12 @@
         <link type="text/css" rel="stylesheet" href="${home}/system/common/css/star.css"/>
         <script src="${home}/system/common/scripts/star.js" type="text/javascript"></script>
         <script type="text/javascript" src="js/worker_info.js"></script>--%>
-        <script type="text/javascript">
+        
+				<script type="text/javascript">
             function checkDate(){
                 setTimeout(function(){
-                    var beginTime=new Date($("#begindate").val().replace(/-/g,"/"));
-                    var endTime=new Date($("#enddate").val().replace(/-/g,"/"));
+                    var beginTime=new Date(($("#begindate").val()+" 00:00:00").replace(/-/g,"/"));
+                    var endTime=new Date(($("#enddate").val()+" 23:59:59").replace(/-/g,"/"));
                     if(beginTime=="Invalid Date" || endTime=="Invalid Date")return;
                     if(endTime.getTime()-beginTime.getTime()<0){
                         return;
@@ -228,15 +312,14 @@
                 var param = {
                     "name":$("#name").val().trim(),
                     "leaveApplication":{
-                        "id":"",
+                        "id":$("#leaveId").val().trim(),//有值覆盖
                         "leave_type":$("#leave_type").val().trim(),
-                        "apply_id":4,//user_id,
-                        "begin_time":$("#begindate").val(),
+                        "apply_id":staff_id,
+                        "begin_time":$("#begindate").val()+" 00:00:00",
                         "duration":$("#duration").val(),
-                        "end_time":$("#enddate").val(),
+                        "end_time":$("#enddate").val()+" 23:59:59",
                         "reason":$("#reason").val(),
                         "sts":0
-                        //TODO bz_auditing_flow审核流程表 bz_auditing_detail 审核明细表 处理
                     }
                 }
                 var beginTime=new Date($("#begindate").val().replace(/-/g,"/"));
@@ -245,22 +328,18 @@
                     alert("请假申请开始时间不得大于结束时间！");
                     throw SyntaxError();
                 }
-console.log(param);
                 var options = {
                     "handleError": false,
                     "showProgressBar":false,
                     "timeout":60000*10
                 }
                 var myCallBack=function callBack(data) {
-                    alert(data);
+console.log($.JsonUtil.jso2json(data));
                     if(data.response_code==0){
-                        alert(data.response_desc);
-                        submitAudit(data.content.result);
-                        parent.$("#leave").html("");
-                        parent.query();
-                        parent.diag.close();
+                        var flowOldId = $("#flowOldId").val().trim();
+                        submitAuditFlow(data.content.result,flowOldId);
                     }else{
-                        alert(data.response_detail);
+                        alert(data.response_desc);
                     }
                 }
                 $.ServiceAgent.JSONInvoke(head, param, myCallBack, options);
@@ -278,7 +357,7 @@ console.log(param);
                 }
 
                 var param = {
-                    "userId":user_id,
+                    "staff_id":staff_id,
                 }
                 var options = {
                     "handleError": false,
@@ -287,7 +366,6 @@ console.log(param);
                 }
                 var daycallBack=function callBack(data) {
                     if(data.response_code==0){
-console.log(data.content.result);
                         $("#leftday").html(data.content.result.leftdays);
                         $("#days").html(data.content.result.days);
                         /*parent.$("#leave").html("");
@@ -301,7 +379,7 @@ console.log(data.content.result);
 
             }
 
-            function submitAuditFlow(application_id){
+            function submitAuditFlow(application_id, flowOldId){
                 var head = {
                     "service_name": "LeaveManageService",
                     "operation_name": "createNewLeaveAuditingFlow",
@@ -315,10 +393,11 @@ console.log(data.content.result);
                 //var id = $("#id").val() ? parseInt($("#id").val()) : 0;
 
                 var param = {
+                    "id":flowOldId,
                     "flow_type":1,
                     "flow_sts":0,
                     "application_id":application_id,
-                    "create_id":user_id
+                    "create_id":staff_id
                 }
                 var options = {
                     "handleError": false,
@@ -326,18 +405,19 @@ console.log(data.content.result);
                     "timeout":60000*10
                 }
                 var myCallBack=function callBack(data) {
-console(data);
+console.log($.JsonUtil.jso2json(data));
                     if(data.response_code==0){
-                        alert(data.response_desc);
-                        submitAuditDetail(data.content.result);
+                        var flowOldId = $("#flowOldId").val().trim();
+                        submitAuditDetail(data.content.result,flowOldId);
                     }else{
-                        alert(data.response_detail);
+                        alert(data.response_desc);
                     }
                 }
                 $.ServiceAgent.JSONInvoke(head, param, myCallBack, options);
                 //存流程，及审批详情
             }
-            function submitAuditDetail(flow_id){//添加流程调用
+            //添加流程调用
+            function submitAuditDetail(flow_id, flowOldId){//添加流程调用
                 /**
                  *提交1-5条
                  */
@@ -351,17 +431,23 @@ console(data);
                     "request_seq" : "",
                     "request_source" : ""
                 }
-                //var id = $("#id").val() ? parseInt($("#id").val()) : 0;
+
+                var details=[];
+                for(var i=1;i<=5;i++){
+                    var str = "#approver"+i;
+                    var approverval = $(str).val();
+                    if(approverval!='undefined' && approverval!=null && approverval!=''){
+                        var params={
+                            "flow_id":flow_id,
+                            "audit_id":$(str).attr("userid")
+                        }
+                        details.push(params);
+                    }
+                }
 
                 var param = {
-                    "flow_id":flow_id,
-                    "audit_ids":{
-                        "1":$("#approver1"),
-                        "2":$("#approver2"),
-                        "3":$("#approver3"),
-                        "4":$("#approver4"),
-                        "5":$("#approver5"),
-                    }
+                    "flowOldId":flowOldId,
+                    "audit_details":details
                 }
                 var options = {
                     "handleError": false,
@@ -369,11 +455,13 @@ console(data);
                     "timeout":60000*10
                 }
                 var myCallBack=function callBack(data) {
-                    alert(data);
                     if(data.response_code==0){
-                        data(data.response_desc);
+                        alert("添加成功！");
+                        //alert(data.content.result);
+                        window.location.href="leavemanage.jsp";
+                        parent.diag.close();
                     }else{
-                        alert(data.response_detail);
+                        alert(data.response_desc);
                     }
                 }
                 $.ServiceAgent.JSONInvoke(head, param, myCallBack, options);
@@ -381,6 +469,11 @@ console(data);
             }
             $(function(){
                 getLeftFurloughDays();
+                var edit = getUrlParam('edit');//////
+                if(edit != null && l==edit){
+                    getEdit();
+                    // TODO 将详情页数据传入（cookie方式），并赋值，，此情形下提示用户：“点击提交按钮，则全部流程重新开始”
+                }
             });
             var worker_type = "";
             var wz_id="";
@@ -388,15 +481,32 @@ console(data);
         </script>
 <script>
     var diag;
-    window.addEventListener("user-choose", function (e) {
+    window.addEventListener("user-choose1", function (e) {
         if(e ==null || e.detail.id==null)return;
         $("#approver1").val(e.detail.name).attr("userId",e.detail.id);
+    });
+    window.addEventListener("user-choose2", function (e) {
+        if(e ==null || e.detail.id==null)return;
+        $("#approver2").val(e.detail.name).attr("userId",e.detail.id);
+    });
+    window.addEventListener("user-choose3", function (e) {
+        if(e ==null || e.detail.id==null)return;
+        $("#approver3").val(e.detail.name).attr("userId",e.detail.id);
+    });
+    window.addEventListener("user-choose4", function (e) {
+        if(e ==null || e.detail.id==null)return;
+        $("#approver4").val(e.detail.name).attr("userId",e.detail.id);
 
     });
-    function ShowAuditAction(index){
-        ShowPage1();
+    window.addEventListener("user-choose5", function (e) {
+        if(e ==null || e.detail.id==null)return;
+        $("#approver5").val(e.detail.name).attr("userId",e.detail.id);
+
+    });
+    function ShowAuditAction(eventName){
+        ShowPage(eventName);
     }
-    function ShowPage1(){
+    function ShowPage(eventName){
         //("提示：你点击了一个按钮");
         //Dialog.confirm('警告：您确认要XXOO吗？',function(){Dialog.alert("yeah，周末到了，正是好时候")});
         diag = new Dialog();
@@ -405,10 +515,11 @@ console(data);
         diag.Title = "";
         diag.URL = "choosepage.jsp";
         diag.ShowMessageRow=false;
+        diag.dialogId=eventName;
         diag.show();
-
         var iframe=$("#_DialogFrame_0");
         iframe[0].contentWindow.targetWindow = window;
+				
     }
     //关闭对话框并触发事件
     function ClosePage(eventName, data) {
@@ -426,7 +537,13 @@ console(data);
     }
 
 </script>
-<script type="text/javascript"
-        src="/xyzg/system/common/scripts/zDialog.js"></script>
+<script>
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+</script>
+<script type="text/javascript" src="/xyzg/system/common/scripts/zDialog.js"></script>
 </body>
 </html>

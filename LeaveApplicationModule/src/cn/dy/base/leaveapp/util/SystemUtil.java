@@ -19,32 +19,32 @@ public class SystemUtil {
         new RepMessage();
         OperateLogRequest operation = new OperateLogRequest();
         int staff_id = 0;
-        if (LeaveApplicationModule.context.getContextByName("staff_id") != null) {
+        if (null != LeaveApplicationModule.context &&  null != LeaveApplicationModule.context.getContextByName("staff_id")) {
             staff_id = Integer.parseInt(LeaveApplicationModule.context.getContextByName("staff_id"));
         }
 
         int corp_id = 0;
-        if (LeaveApplicationModule.context.getContextByName("corp_id") != null) {
+        if (null != LeaveApplicationModule.context && LeaveApplicationModule.context.getContextByName("corp_id") != null) {
             corp_id = Integer.parseInt(LeaveApplicationModule.context.getContextByName("corp_id").toString());
         }
 
         int user_id = 0;
-        if (LeaveApplicationModule.context.getContextByName("user_id") != null) {
+        if (null != LeaveApplicationModule.context && LeaveApplicationModule.context.getContextByName("user_id") != null) {
             user_id = Integer.parseInt(LeaveApplicationModule.context.getContextByName("user_id").toString());
         }
 
         int dept_id = 0;
-        if (LeaveApplicationModule.context.getContextByName("dept_id") != null) {
+        if (null != LeaveApplicationModule.context && LeaveApplicationModule.context.getContextByName("dept_id") != null) {
             dept_id = Integer.parseInt(LeaveApplicationModule.context.getContextByName("dept_id").toString());
         }
 
         String user_name = "";
-        if (LeaveApplicationModule.context.getContextByName("user_name") != null) {
+        if (null != LeaveApplicationModule.context && LeaveApplicationModule.context.getContextByName("user_name") != null) {
             user_name = LeaveApplicationModule.context.getContextByName("user_name").toString();
         }
 
         String dept_name = "";
-        if (LeaveApplicationModule.context.getContextByName("dept_name") != null) {
+        if (null != LeaveApplicationModule.context && LeaveApplicationModule.context.getContextByName("dept_name") != null) {
             dept_name = LeaveApplicationModule.context.getContextByName("dept_name").toString();
         }
 

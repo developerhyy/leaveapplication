@@ -47,6 +47,9 @@ public class Tools {
 
     public static Date parseDate(String date) {
         try {
+            if(date == null){
+                return null;
+            }
             if(date.length() > 19)
                 date = date.substring(0,19);
             if(date.length() < 12 )

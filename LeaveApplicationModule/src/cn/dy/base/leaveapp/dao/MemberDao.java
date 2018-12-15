@@ -37,7 +37,7 @@ public class MemberDao {
     private DataSource dataSource = DBConnectPool.create().getDataSource();
     //private JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-    private static final String QUERY_MEMBER = "select a.ID id, a.`NAME` name, case when a.GENDER=1 then '男' else '女' end gender, a.IDCARD idcard,a.`CODE` policecode, a.MOBILE_NBR1 mobile, b.`NAME` dept from \n ecc_contact_info a LEFT join ecc_contact_holder c on  a.ID=c.CONTACT_ID LEFT JOIN ecc_contact_group b ON c.GROUP_ID=b.ID where 1=1 ";
+    private static final String QUERY_MEMBER = "select a.ID id,a.STAFF_ID staff_id, a.`NAME` name, case when a.GENDER=1 then '男' else '女' end gender, a.IDCARD idcard,a.`CODE` policecode, a.MOBILE_NBR1 mobile, b.`NAME` dept from \n ecc_contact_info a LEFT join ecc_contact_holder c on  a.ID=c.CONTACT_ID LEFT JOIN ecc_contact_group b ON c.GROUP_ID=b.ID where 1=1 ";
     // "select a.operation_id, a.operation_name, a.staff_id, b.account staff_account,\n  a.corp_id, a.module,a.child_module,a.operation_obj,c.account corp_account, a.operate_time, a.operate_content \n  from sm_operation_log a, sm_staff_info b, sm_corporation_info c\n where a.staff_id = b.id\n   and a.corp_id = c.id";
     public MemberDao() {
         if (this.transactionTemplate == null) {
@@ -77,6 +77,7 @@ public class MemberDao {
             public MemberInfo mapRow(ResultSet rs, int rowNum) throws SQLException {
                 MemberInfo member = new MemberInfo();
                 member.setId(rs.getLong("id"));
+                member.setStaff_id(rs.getLong("staff_id"));
                 member.setDept(rs.getString("dept"));
                 member.setGender(rs.getString("gender"));
                 member.setIdcard(rs.getString("idcard"));
@@ -93,10 +94,10 @@ public class MemberDao {
     private String createParameters(MemberService.MemberServiceParam param, Map<String, Object> params) {
         StringBuffer sbSql = new StringBuffer(QUERY_MEMBER);
         if (param != null) {
-            String dept_name = param.getDept();
-            if (StringUtils.isNotEmpty(dept_name)) {
-                sbSql.append(" and b.NAME = :dept_name");
-                params.put("dept_name", dept_name);
+            long deptId = param.getDeptId();
+            if (deptId > 0) {
+                sbSql.append(" and b.Id = :deptId");
+                params.put("deptId", deptId);
             }
 //姓名、身份证号、警号
             String query_member = param.getQuery();

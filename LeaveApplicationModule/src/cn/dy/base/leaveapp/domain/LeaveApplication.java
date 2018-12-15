@@ -18,11 +18,12 @@ public class LeaveApplication implements Serializable {
     private Date end_time;
     private long duration;
     private String reason;
+    /**
+     * ////这个为staff_id，关联部门时，关联取ecc_id
+     */
     private long apply_id;
     private Date create_time;
     private String sts;
-
-
 
     public long getId() {
         return id;

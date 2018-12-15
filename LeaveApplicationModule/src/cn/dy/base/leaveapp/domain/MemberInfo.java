@@ -13,6 +13,7 @@ import java.util.Date;
 public class MemberInfo implements Serializable {
     private static final long serialVersionUID = 8120269623470199376L;
     private long id;
+    private long staff_id;
     private String name;
     private String gender;
     private String idcard;
@@ -26,6 +27,14 @@ public class MemberInfo implements Serializable {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public long getStaff_id() {
+        return staff_id;
+    }
+
+    public void setStaff_id(long staff_id) {
+        this.staff_id = staff_id;
     }
 
     public String getName() {

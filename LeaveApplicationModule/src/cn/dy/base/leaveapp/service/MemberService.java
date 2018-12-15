@@ -14,22 +14,31 @@ import java.util.List;
  */
 public interface MemberService {
     @ESBAnnotation(
-            names = {"dept", "query", "pageNum", "pageSize"},
+            names = {"deptId", "query", "pageNum", "pageSize"},
             req_login = false
     )
-    RepMessage queryMemberList(String dept, String query,long pageNum, long pageSize);
+    RepMessage queryMemberList(long deptId, String query,long pageNum, long pageSize);
     @ESBAnnotation(
-            names = {"all"},
+            names = {"all","staff_id"},
             req_login = false,
             req_log = true,
             record_log_detail = true
     )
-    List getDeptTree(boolean all);
+    List getDeptTree(boolean all, long staff_id);
     class MemberServiceParam{
+        long deptId;
         String dept;
         String query;
         long pageSize;
         long pageNum;
+
+        public long getDeptId() {
+            return deptId;
+        }
+
+        public void setDeptId(long deptId) {
+            this.deptId = deptId;
+        }
 
         public String getDept() {
             return dept;

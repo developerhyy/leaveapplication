@@ -37,9 +37,9 @@ public class MemberServiceController implements MemberService {
     }
 
     @Override
-    public RepMessage queryMemberList(String dept, String query, long pageNum, long pageSize) {
+    public RepMessage queryMemberList(long deptId, String query, long pageNum, long pageSize) {
         MemberServiceParam param = new MemberServiceParam();
-        param.setDept(dept);
+        param.setDeptId(deptId);
         param.setQuery(query);
         param.setPageNum(pageNum);
         param.setPageSize(pageSize);
@@ -60,7 +60,7 @@ public class MemberServiceController implements MemberService {
     }
 
     @Override
-    public List getDeptTree(boolean all) {
+    public List getDeptTree(boolean all, long staff_id) {
         DBExecuteUtil db = new DBExecuteUtil();
         List result = new ArrayList();
         String sql = " SELECT name,id,order_index,parent_id,sts, (CASE WHEN group_type='NORMAL' AND parent_id='101' THEN 'group' ELSE 'branch' END ) AS dep  FROM ecc_contact_group ";
@@ -72,7 +72,8 @@ public class MemberServiceController implements MemberService {
         sql2 = sql2 + "where g.id=h.group_id and i.id=h.contact_id and i.sts='1' ";
         List nodes = db.queryList(sql, ZTreeNode.class);
         List nodes2 = db.queryList(sql2, ZTreeNode.class);
-        ((List)nodes).addAll(nodes2);
+        //((List)nodes).addAll(nodes2);//显示部门下人员
+        //((List)nodes).
         Map filterMap = new HashMap();
         if (!filterMap.isEmpty()) {
             List newResult = new ArrayList();
@@ -88,9 +89,70 @@ public class MemberServiceController implements MemberService {
             nodes = newResult;
         }
 
+        if(staff_id>0){
+            String sql1 = "select g.id from ecc_contact_holder as h,ecc_contact_group as g,ecc_contact_info as i where g.id=h.group_id and i.id=h.contact_id and i.sts='1' and i.staff_id="+staff_id;
+            Integer deptId = db.queryObject(sql1,Integer.class);
+
+            ArrayList resultlst = new ArrayList();
+            resultlst= getParent(101,deptId, resultlst,(ArrayList)nodes);//取得父
+            nodes = getRecursion(deptId, resultlst,(ArrayList)nodes);//取得子集
+
+        }
+
         String cropName = this.memberDao.getCorpName();
         GZTreeUtil.createZTree(cropName, result, (List)nodes, "101", (Map)null);
         return result;
+    }
+
+    private ArrayList getParent(Integer root,Integer deptId, ArrayList resultlst, ArrayList<ZTreeNode> nodes) {
+        if(nodes.size() ==0){
+            return null;
+        }
+
+        ZTreeNode node = findParent(deptId, nodes);
+        if (node != null && Integer.parseInt(node.parent_id) != root ) {
+            getParent(root,Integer.parseInt(node.parent_id), resultlst, nodes);
+        }
+        resultlst.add(node);
+
+        return resultlst;
+    }
+
+    private ArrayList getRecursion(Integer deptId, ArrayList result, ArrayList<ZTreeNode> alc) {
+        if(alc.size() ==0){
+            return null;
+        }
+
+        List<ZTreeNode> Deps = findByParentId(deptId, alc);
+
+        for (ZTreeNode df : Deps) {
+            if (Deps != null && Deps.size()> 0 ) {
+                getRecursion(Integer.parseInt(df.id), result, alc);
+            }
+            result.add(df);// 添加
+        }
+        return result;
+    }
+
+    private List<ZTreeNode> findByParentId(int deptId, ArrayList<ZTreeNode> alc) {
+        List newResult = new ArrayList();
+        for (ZTreeNode node : alc){
+            if(Integer.parseInt(node.parent_id) == deptId){
+                newResult.add(node);
+            }
+        }
+        return newResult;
+    }
+
+    private ZTreeNode findParent(int deptId, ArrayList<ZTreeNode> alc) {
+       ZTreeNode node1=new ZTreeNode();
+        for (ZTreeNode node : alc){
+            if(Integer.parseInt(node.id) == deptId){
+                node1 =node;
+                break;
+            }
+        }
+        return node1;
     }
 
 

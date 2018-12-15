@@ -167,16 +167,15 @@ public class SeniorityDao {
 
     /**
      * 查询剩余休假天数
-     * @param userId
      * @return
      */
-    public Object getLeftFurloughDays(String userId) {
+    public Object getLeftFurloughDays(String staff_id) {
 
         Map<String, Object> params = new HashMap<>();
         StringBuffer sql = new StringBuffer(QUERY_MEMBER);
-        if (StringUtils.isNotEmpty(userId)) {
-            sql.append(" and a.id = :id");
-            params.put("id", userId);
+        if (StringUtils.isNotEmpty(staff_id)) {
+            sql.append(" and a.STAFF_ID = :STAFF_ID");
+            params.put("STAFF_ID", staff_id);
         }
 
         RowMapper<MemberInfoVo> rowMapper = new RowMapper<MemberInfoVo>() {
@@ -195,7 +194,7 @@ public class SeniorityDao {
         List<MemberInfoVo> list =  this.namedParameterJdbcTemplate.query(sql.toString(), params, rowMapper);
 
         MemberInfoVo memberInfoVo = list != null && list.size() > 0 ? (MemberInfoVo) list.get(0) : null;
-
+        if(memberInfoVo == null) throw  new ServiceBusinessException("角色信息错误","角色信息错误");
         Map<String, Object> map = new HashMap<>();
         if(memberInfoVo.getJoinTime() != null)
         {
@@ -408,10 +407,10 @@ public class SeniorityDao {
     private String createParameters(SeniorityService.SeniorityServiceParam param, Map<String, Object> params) {
             StringBuffer sbSql = new StringBuffer(QUERY_MEMBER);
             if (param != null) {
-                String dept_name = param.getDept();
-                if (StringUtils.isNotEmpty(dept_name)) {
-                    sbSql.append(" and b.NAME = :dept_name");
-                    params.put("dept_name", dept_name);
+                long deptId = param.getDeptId();
+                if (deptId > 0) {
+                    sbSql.append(" and b.Id = :deptId");
+                    params.put("deptId", deptId);
                 }
                 String gender = param.getGender();
                 if(StringUtils.isNotEmpty(gender)){

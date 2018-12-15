@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="82f20fe6-3ff4-44ac-bf8a-337b06166602" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/LeaveApplicationModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/LeaveApplicationModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/framework.log" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/framework.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/choosepage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/choosepage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/leaveadd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/leaveadd.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/leaveapprove.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/leaveapprove.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/leavedetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/leavedetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/leavemanage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/leavemanage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/seniorityquery.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/seniorityquery.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/out/LeaveApplicationModule.jar" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/out/LeaveApplicationModule.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/out/production/LeaveApplicationModule/cn/dy/base/leaveapp/dao/LeaveManageDao$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/out/production/LeaveApplicationModule/cn/dy/base/leaveapp/dao/LeaveManageDao$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/out/production/LeaveApplicationModule/cn/dy/base/leaveapp/dao/LeaveManageDao$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/out/production/LeaveApplicationModule/cn/dy/base/leaveapp/dao/LeaveManageDao$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/out/production/LeaveApplicationModule/cn/dy/base/leaveapp/dao/LeaveManageDao$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/out/production/LeaveApplicationModule/cn/dy/base/leaveapp/dao/LeaveManageDao$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/dao/LeaveManageDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/dao/LeaveManageDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/dao/MemberDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/dao/MemberDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/dao/SeniorityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/dao/SeniorityDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/domain/AuditDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/domain/AuditDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/domain/AuditFlow.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/domain/AuditFlow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/domain/LeaveApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/domain/LeaveApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/domain/MemberInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/domain/MemberInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/service/LeaveManageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/service/LeaveManageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/service/SeniorityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/service/SeniorityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/support/LeaveManageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/support/LeaveManageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/support/MemberServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/support/MemberServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/support/SeniorityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/support/SeniorityServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/test/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/util/SystemUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/util/SystemUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/util/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/util/Tools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/vo/LeaveListVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/vo/LeaveListVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/dbpool.xml" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/dbpool.xml" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CheckStyle-IDEA-workspace">
+    <option name="configuration">
+      <map>
+        <entry key="last-active-plugin-version" value="5.23.0" />
+      </map>
+    </option>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="dic.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LeaveApplicationModule/dic.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LeaveManageDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/dao/LeaveManageDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1382">
+              <caret line="669" selection-start-line="669" selection-end-line="669" />
+              <folding>
+                <element signature="e#2159#2160#0" expanded="true" />
+                <element signature="e#2225#2226#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="datadict.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LeaveApplicationModule/src/datadict.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/dao/LeaveManageDao.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="20" />
+    <option name="y" value="8" />
+    <option name="width" value="1400" />
+    <option name="height" value="1039" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="leaveapplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leaveapplication" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="leaveapplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leaveapplication" type="462c0819:PsiDirectoryNode" />
+              <item name="LeaveApplicationModule" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="leaveapplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leaveapplication" type="462c0819:PsiDirectoryNode" />
+              <item name="LeaveApplicationModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="leaveapplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leaveapplication" type="462c0819:PsiDirectoryNode" />
+              <item name="LeaveApplicationModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="leaveapplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leaveapplication" type="462c0819:PsiDirectoryNode" />
+              <item name="LeaveApplicationModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="dy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="leaveapplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leaveapplication" type="462c0819:PsiDirectoryNode" />
+              <item name="LeaveApplicationModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="dy" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="leaveapplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leaveapplication" type="462c0819:PsiDirectoryNode" />
+              <item name="LeaveApplicationModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="dy" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="leaveapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="leaveapplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leaveapplication" type="462c0819:PsiDirectoryNode" />
+              <item name="LeaveApplicationModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="dy" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="leaveapp" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="leaveapplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="com.zeroturnaround.javarebel.idea.plugin.settings.startup.StartupConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="82f20fe6-3ff4-44ac-bf8a-337b06166602" name="Default" comment="" />
+      <created>1544859308590</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1544859308590</updated>
+      <workItem from="1544859313197" duration="1555000" />
+      <workItem from="1544860915272" duration="247000" />
+    </task>
+    <task id="LOCAL-00001" summary="哈哈哈">
+      <created>1544859369537</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1544859369537</updated>
+    </task>
+    <task id="LOCAL-00002" summary="哈哈哈">
+      <created>1544859433043</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1544859433043</updated>
+    </task>
+    <task id="LOCAL-00003" summary="哈哈哈">
+      <created>1544859595067</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1544859595067</updated>
+    </task>
+    <task id="LOCAL-00004" summary="哈哈哈">
+      <created>1544859664276</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1544859664276</updated>
+    </task>
+    <task id="LOCAL-00005" summary="哈哈哈">
+      <created>1544859731578</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1544859731578</updated>
+    </task>
+    <task id="LOCAL-00006" summary="哈哈哈">
+      <created>1544860295100</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1544860295100</updated>
+    </task>
+    <task id="LOCAL-00007" summary="哈哈哈">
+      <created>1544860353217</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1544860353217</updated>
+    </task>
+    <task id="LOCAL-00008" summary="哈哈哈111">
+      <created>1544860555312</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1544860555312</updated>
+    </task>
+    <task id="LOCAL-00009" summary="哈哈哈111">
+      <created>1544860740942</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1544860740942</updated>
+    </task>
+    <task id="LOCAL-00010" summary="哈哈哈test1">
+      <created>1544861081384</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1544861081384</updated>
+    </task>
+    <task id="LOCAL-00011" summary="哈哈哈test1">
+      <created>1544861155827</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1544861155827</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1802000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5010661" side_tool="true" visible="true" weight="0.32967034" />
+      <window_info anchor="bottom" id="JRebel Console" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="JRebel Executor" order="7" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4989339" visible="true" weight="0.32967034" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="CheckStyle" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18017058" />
+      <window_info id="JRebel" order="2" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="7" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="哈哈哈" />
+    <MESSAGE value="哈哈哈111" />
+    <MESSAGE value="哈哈哈test1" />
+    <option name="LAST_COMMIT_MESSAGE" value="哈哈哈test1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/LeaveApplicationModule/dic.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/dao/LeaveManageDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16725">
+          <caret line="669" lean-forward="true" selection-start-line="669" selection-end-line="669" />
+          <folding>
+            <element signature="e#2159#2160#0" expanded="true" />
+            <element signature="e#2225#2226#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LeaveApplicationModule/dic.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/dao/LeaveManageDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1382">
+          <caret line="669" selection-start-line="669" selection-end-line="669" />
+          <folding>
+            <element signature="e#2159#2160#0" expanded="true" />
+            <element signature="e#2225#2226#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LeaveApplicationModule/src/datadict.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

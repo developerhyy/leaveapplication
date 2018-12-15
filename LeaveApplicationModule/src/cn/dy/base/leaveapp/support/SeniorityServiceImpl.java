@@ -27,9 +27,9 @@ public class SeniorityServiceImpl implements SeniorityService {
     }
 
     @Override
-    public RepMessage querySeniority(String dept, String gender, String query, long pageNum, long pageSize) {
+    public RepMessage querySeniority(long deptId, String gender, String query, long pageNum, long pageSize) {
         SeniorityServiceParam param = new SeniorityServiceParam();
-        param.setDept(dept);
+        param.setDeptId(deptId);
         param.setGender(gender);
         param.setQuery(query);
         param.setPageNum(pageNum);
@@ -50,12 +50,12 @@ public class SeniorityServiceImpl implements SeniorityService {
     }
 
     @Override
-    public RepMessage getLeftFurloughDays(String userId) {
+    public RepMessage getLeftFurloughDays(String staff_id) {
 
         RepMessage repMessage = new RepMessage();
         try {
             Map<String, Object> map = new HashMap();
-            map.put("result", this.seniorityDao.getLeftFurloughDays(userId));
+            map.put("result", this.seniorityDao.getLeftFurloughDays(staff_id));
             repMessage.setContent(map);
             repMessage.setResponse_code("0");
         } catch (Exception var10) {

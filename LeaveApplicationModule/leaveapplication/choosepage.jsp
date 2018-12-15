@@ -2,13 +2,14 @@
         contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 
-<html>
+<html style="background: rgb(255,255,255);">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>人员列表</title>
     <link rel="stylesheet" href="../scripts/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
     <jsp:include page="../assets/common_inc_new.jsp" flush="true"></jsp:include>
     <script type="text/javascript" src="../scripts/zTree/js/jquery.ztree.all-3.5.min.js"></script>
+		
 </head>
 <body class="mainbody">
 <form method="post" id="form1">
@@ -32,31 +33,17 @@
     <!-- 操作栏 -->
     <div class="toolbar-wrap">
         <div id="floatHead" class="toolbar">
-            <div class="r-list" style="float: none">
+            <div class="r-list" style="float: left">
 
-                <input type="text" name="txtdept" id="txtdept" for="txtdept" placeholder="部门" sucmsg=" " style="width: 150px;" class="input normal"
+                <input type="text" name="txtdept" id="txtdept" for="txtdept" deptid="" readonly="readonly" placeholder="部门" sucmsg=" " style="width: 150px;" class="input normal"
                 onclick="ShowAction()" />
 
                 <input type="text" name="txtQuery" id="txtQuery" for="txtQuery" placeholder="姓名、身份证号、警号" class="input normal" />
 
             </div>
 
-            <div class="l-list">
+            <div class="l-list" style="float: left;">
                 <ul class="icon-list">
-                    <%--<li>
-                        <a class="all"  onclick="checkAll(this);"><i></i><span>全选</span></a>
-                    </li>
-                    <li>
-                        <a class="add" onclick="return ShowAction();"><i></i><span>添加</span></a>
-                    </li>
-                    <li>
-                        <a onclick="return ExePostBack(&#39;btnDelete&#39;);"
-                           id="btnDelete" class="del"><i></i><span>删除</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="save" onclick="return ShowSaveAction();"><i></i><span>弹出窗口</span></a>
-                    </li>--%>
                     <li>
                         <a id="lbtnSearch" class="btn-search" onclick="ui_listReqInfos();"><i></i><span>查询</span></a>
                     </li>
@@ -117,27 +104,10 @@
     <%--</div>--%>
 </script>
 <script type="text/javascript">
-    var zTree = null;
     var result;
     var page_current=1;
     var page_size=0;
     var page_interval=10;
-    var right_click_node = {
-        id: '',
-        name: '',
-        parent_id: '',
-        parent_name: ''
-    };
-    function chooseNode(treeNode) {
-        right_click_node.id = treeNode.id;
-        right_click_node.name = treeNode.name;
-        right_click_node.parent_id = treeNode.parent_id;
-        var parentTreeNode = treeNode.getParentNode();
-        if (parentTreeNode)
-            right_click_node.parent_name = parentTreeNode.name;
-        else
-            right_click_node.parent_name = "";
-    }
 
     function ui_listReqInfos() {
         page_size=$("#txtPageNum").val();
@@ -155,11 +125,8 @@
         listReqInfos(queryCallBack);
     }
     function pageChangeCallback (pageid){
-        alert("跳转到"+pageid);
         page_current=pageid;
         ui_listReqInfos();
-        //	 var htmlMsg2=OutPageListAjax(10,  pageid,  25,  pageChangeCallback,  10);
-        //	$("#PageContent").html(htmlMsg2);
     }
     function listReqInfos(callBackList){
         var head = {
@@ -168,7 +135,7 @@
         }
 
         var param = {
-            "dept":$("#txtdept").val() ,
+            "deptId": $.trim($("#txtdept").attr("deptId")).length == 0 ? "" : $("#txtdept").attr("deptId"),
             "query": $.trim($("#txtQuery").val()).length == 0 ? "" : $("#txtQuery").val(),
             "pageNum":page_current,
             "pageSize":page_size
@@ -227,14 +194,14 @@
              "</span>" +
              * @type {string}
              */
-            var htmlMsg="<tr code="+reqInfo.id+">" +
+            var htmlMsg="<tr code="+reqInfo.staff_id+">" +
                 "<td align=\"center\">" +
                 ((page_current-1)*page_size + i + 1) +
                 "<input type=\"hidden\" name=\"leave_id\"" +
                 "value=\""+reqInfo.id+"\" />" +
                 "</td>" +
                 "<td name="+ reqInfo.name+" align=\"center\">" +
-                "<a href=\"\">"+reqInfo.name+"<\/a>" +
+                "<span>"+reqInfo.name+"<\/span>" +
                 "</td>" +
                 "<td align=\"center\">" +
                 reqInfo.gender+
@@ -267,14 +234,12 @@
         var param = {'0':'模版描述'};
         var tit = "部门选择";
         jsdialog(tit, RpTpl($("#recharge-tpl").html(), param), "", "None", function (data) { alert(1+"=========="+data);},
-            function (data) {
-                alert(2+"=========="+data);
+            function () {
+                $("#txtdept").attr("deptId",right_click_node.id);
                 $("#txtdept").val(right_click_node.name);
-                //alert(right_click_node.name);
             },
             function () {
             createTree();
-            alert(3+"==========");
         });
         //document.location.href="edit.html";
         // window.open("edit.html");
@@ -288,177 +253,6 @@
         }
         return re;
     }
-    function createTree(){
-        var head={
-            "service_name":"MemberService",
-            "operation_name":"getDeptTree"
-        };
-        var param={
-            "all": true
-        };
-        var options = {
-            "handleError": false
-        };
-        function callBack(data){
-            resizeTree();
-            if(zTree != null){
-                zTree.destroy();
-            }
-            zTree = $.fn.zTree.init($("#tree"),setting,data);
-            var rootNode = zTree.getNodes()[0];
-            if(rootNode && rootNode.children && rootNode.children.length > 0){
-                var node = rootNode.children[0];
-                if (node) {
-                    zTree.selectNode(node, true);
-                    zTree.cancelSelectedNode(node);
-                }
-            }
-
-        };
-        $.ServiceAgent.JSONInvoke(head, param, callBack, options);
-    }
-
-    function dropPrev(treeId, nodes, targetNode) {
-        if (targetNode.id == "101")
-            return false; //不能插入到根节点之前
-
-        return true;
-    }
-
-    function dropNext(treeId, nodes, targetNode) {
-        if (targetNode.id == "101")
-            return false; //不能插入到根节点之后
-        return true;
-    }
-
-    function dropInner(treeId, nodes, targetNode) {
-        return true;
-    }
-
-    var setting = {
-        edit: {
-            enable: true,
-            showRemoveBtn: false,
-            showRenameBtn: false,
-            drag: {
-                isCopy: true,
-                isMove: true,
-                prev: dropPrev,
-                inner: dropInner,
-                next: dropNext
-            }
-        },
-
-        data: {
-            simpleData: {
-                enable: true,
-                idKey: "id",
-                pIdKey: "parent_id",
-                rootPId: 0
-            },
-            key: {
-                name: "dis_name"
-            }
-        },
-
-        callback: {
-            beforeDrag: function(treeId, treeNodes) {
-                if (treeNodes) {
-                    var treeNode = treeNodes[0];
-                    if (treeNode.getParentNode() == null)
-                        return false;
-                }
-                return true;
-            },
-
-            beforeDragOpen: function(treeId, treeNode) {
-                return false;
-            },
-
-            beforeDrop: function(treeId, treeNodes, targetNode, moveType) {
-                if (targetNode) {
-                    moveApp(treeNodes[0], targetNode, moveType);
-                    return true;
-                }
-                return false;
-            },
-
-            onDrop: function(event, treeId, treeNodes, targetNode, moveType) {
-                if (targetNode) {
-                    return true;
-                }
-                return false;
-            },
-
-            beforeClick: function(treeId, treeNode, clickFlag) {
-                return true;
-            },
-
-            onClick: function(callEvent, treeId, treeNode, clickFlag) {
-                if (treeNode)
-                    onClickTree(treeNode);
-                return true;
-            },
-            onRightClick: function(callEvent, treeId, treeNode) {
-                if (treeNode) {
-                    zTree.selectNode(treeNode, false);
-                    onClickTree(treeNode);
-                    showRMenu(treeNode, callEvent.clientX, callEvent.clientY);
-                }
-                return true;
-            }
-        },
-
-        view: {
-            nameIsHTML: true,
-            showTitle: false,
-            selectedMulti: false
-        }
-    };
-
-    //单击树节点时
-    function onClickTree(treeNode) {
-        //保存节点相关信息，供其他页面调用
-        chooseNode(treeNode);
-        var id = treeNode.id.toString();
-        var cutStr = id.substring(0, 1);
-        var cutId = id.substring(1);
-        if (id != "101") {
-            if (cutStr == "c") {
-                $.form("#contactForm").sleep();
-                $("#treeParentArea").show();
-alert(cutStr)
-                //getStaffDetail(cutId, treeNode);
-            } else {
-
-                $.form("#tableForm").sleep();
-                $("#treeParentArea").show();
-alert(cutStr)
-                //getFunDetail(id, treeNode);
-            }
-        }
-
-    }
-    function resizeTree() {
-
-        if ($.browser.msie) {
-            if ($.browser.version == "10.0") {
-                $("#treeParentArea")
-                    .height($(document.body).height() - 23 - 45);
-                $("#treeParentArea").width($("#search_key").width() * 10 / 7);
-                $("#tree").height($("#treeParentArea").height() - 20);
-                $("#tree").width($("#treeParentArea").width() - 20);
-            } else {
-                $("#treeParentArea")
-                    .height($(document.body).height() - 23 - 62);
-                $("#tree").height($("#treeParentArea").height() - 10);
-            }
-        } else {
-            $("#treeParentArea").height($(document.body).height() - 23 - 40);
-            $("#tree").height($("#treeParentArea").height() - 40);
-        }
-
-    }
 
     var diag;
     function ShowSaveAction(){
@@ -470,7 +264,7 @@ alert(cutStr)
         diag.Title = "";
         diag.URL = "edit.jsp";
         diag.ShowMessageRow=false;
-        //diag.OKEvent = function(){diag.close();};//点击确定后调用的方法
+        diag.OKEvent = function(){diag.close();};//点击确定后调用的方法
         //diag.OKEvent = function(){Dialog.alert("用户名不能为空")};
         diag.show();
     }
@@ -507,19 +301,20 @@ alert(cutStr)
     }
 </script>
 <script>
-    function onChoose(e) {
+	
+
+ function onChoose(e) {
         var tr = $(e).closest("tr");
         var Id = tr.attr("code");
         //var i = tr.index();
         var name= $(tr.children()[1]).attr("name");//tr.find("td:eq(1)").attr("name");
-        PageBack("user-choose", { id: Id, name: name });
+        PageBack(parent.diag.dialogId, { id: Id, name: name });
     }
-
     //执行关闭事件并且通知之前的页面（通常用在协议同意，签名之类）
     function PageBack(eventName, data) {
         if (window.parent != window) {
             parent.targetWindow = window.targetWindow;
-            parent.ClosePage( eventName, data);
+            parent.ClosePage(eventName, data);
         } else {
             //alert("必需是在iframe里面的页面才能调用此方法！");
             history.back(-1);
@@ -539,5 +334,6 @@ alert(cutStr)
 <script type="text/javascript">
     //dynamicLoading.css("../assets/css/main.css");
 </script>
+<script src="deptTreeJs.js"></script>
 </body>
 </html>

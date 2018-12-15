@@ -6,9 +6,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>工龄查询</title>
+    <link rel="stylesheet" href="../scripts/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
     <jsp:include page="../assets/common_inc_new.jsp" flush="true"></jsp:include>
-    <%--<link href="skin/default/style.css" rel="stylesheet" type="text/css" />--%>
-    <%--<link href="css/pagination.css" rel="stylesheet" type="text/css" />--%>
+    <script type="text/javascript" src="../scripts/zTree/js/jquery.ztree.all-3.5.min.js"></script>
 </head>
 <body class="mainbody">
 <form method="post" id="form1">
@@ -33,7 +33,7 @@
     <div class="toolbar-wrap">
         <div id="floatHead" class="toolbar">
             <div class="r-list" style="float: none">
-                <input type="text" name="txtdept" id="txtdept" for="txtdept" placeholder="部门" sucmsg=" " style="width: 150px;" class="input normal"
+                <input type="text" name="txtdept" id="txtdept" for="txtdept" deptid="" readonly="readonly" placeholder="部门" sucmsg=" " style="width: 150px;" class="input normal"
                        onclick="ShowAction()" />
                 <div class="rule-single-select" style="float: left;">
                     <select name="txtGender" id="txtGender" datatype="*" sucmsg=" "
@@ -95,23 +95,14 @@
     </div>
 </form>
 
+
 <!-- js -->
 <script id="recharge-tpl" type="text/template">
-    <div class="tab-content">
-        <dl>
-            <dt class="txt-pockge" style="width:70px" CssClass="pagenum">模板列表</dt>
-            <dd style="margin:0px 10px 0 80px" class="rule-single-select">
-                <select name="listTemplates" id="listTemplates" style="height:32px;width:310px;">
-                </select>
-            </dd>
-        </dl>
-        <dl>
-            <dt class="txt-pockge" style="width:70px" CssClass="pagenum">{#0#}</dt>
-            <dd style="margin:0px 10px 0 80px">
-                    <textarea name="txtContent" rows="2" cols="20" id="txtContent" class="input normal">
-                    </textarea>
-            </dd>
-        </dl>
+    <div id="role" style="width: 200px; float: left; ; height: 300px;background: #eeeeee">
+        <div class="title">部门列表</div>
+        <div id="treeParentArea" valign=top style="width: 100%;height: 500px;">
+            <ul id="tree" class="ztree" style="overflow:auto;margin:0px;height:698px"></ul>
+        </div>
     </div>
 </script>
 <script type="text/javascript">
@@ -146,7 +137,7 @@
         }
 
         var param = {
-            "dept":$("#txtdept").val() ,
+            "deptId": $.trim($("#txtdept").attr("deptId")).length == 0 ? "" : $("#txtdept").attr("deptId"),
             "gender":$("#txtGender").val() ,
             "query":$("#txtQuery").val() ,
             "pageNum":page_current,
@@ -225,8 +216,15 @@
 
     function ShowAction() {
         var param = {'0':'模版描述'};
-        var tit = "模板选择";
-        jsdialog(tit, RpTpl($("#recharge-tpl").html(), param), "", "None", function () { }, function () { }, function () { });
+        var tit = "部门选择";
+        jsdialog(tit, RpTpl($("#recharge-tpl").html(), param), "", "None", function (data) { alert(1+"=========="+data);},
+            function () {
+                $("#txtdept").attr("deptId",right_click_node.id);
+                $("#txtdept").val(right_click_node.name);
+            },
+            function () {
+                createTree();
+            });
         //document.location.href="edit.html";
         // window.open("edit.html");
     }
@@ -269,12 +267,9 @@
         src="/xyzg/system/common/scripts/utils.js"></script>
 <script type="text/javascript"
         src="/xyzg/system/common/scripts/zDialog.js"></script>
-<script type="text/javascript"
-        src="../scripts/jquery/jquery-1.8.1.min.js"></script>
-<script type="text/javascript"
-        src="../scripts/lhgdialog/lhgdialog.js?skin=idialog"></script>
 <script type="text/javascript">
     //dynamicLoading.css("../assets/css/main.css");
 </script>
+<script src="deptTreeJs.js"></script>
 </body>
 </html>

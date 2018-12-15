@@ -15,11 +15,33 @@ public class AuditDetail implements Serializable {
     private long id;
     private long flow_id;
     private long pre_id;
+    /*
+    //这个为staff_id
+     */
     private long audit_id;
+    private String audit_name;
     private Date audit_time;
     private String audit_remark;
     private String audit_sts;
     private Date create_time;
+
+    public String getAudit_stsTxt() {
+        return audit_stsTxt;
+    }
+
+    public void setAudit_stsTxt(String audit_stsTxt) {
+        this.audit_stsTxt = audit_stsTxt;
+    }
+
+    private String audit_stsTxt;
+
+    public String getAudit_name() {
+        return audit_name;
+    }
+
+    public void setAudit_name(String audit_name) {
+        this.audit_name = audit_name;
+    }
 
     public long getId() {
         return id;

@@ -16,6 +16,9 @@ public class AuditFlow implements Serializable {
     private String flow_type;
     private String flow_sts;
     private long application_id;
+    /**
+     * //这个为staff_id
+     */
     private long create_id;
     private Date create_time;
     private long cur_detail_id;
@@ -75,11 +78,20 @@ public class AuditFlow implements Serializable {
     public void setCreate_time(Date create_time) {
         this.create_time = create_time;
     }
+
+    /**
+     * 审批流程类型1请假流程2考勤流程3工资流程4加值班补贴流程
+     */
     public static class AuditFlowType{
         public static Integer LEAVEAUDITFLOWTYPE=1;
     }
+
+    /**
+     * 流程状态0审核中1结束
+     */
     public static class FlowSts{
         public static Integer Auditing=0;
         public static Integer Over=1;
+        public static Integer Invalid=2;
     }
 }

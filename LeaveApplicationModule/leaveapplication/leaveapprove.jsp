@@ -13,6 +13,8 @@
 
     <script type="text/javascript">
         //<![CDATA[
+        //var user_id =loginInfo.user_id;
+        var staff_id = loginInfo.staff_id;
         var theForm = document.forms['form1'];
         if (!theForm) {
             theForm = document.form1;
@@ -49,11 +51,10 @@
                      style="float: left; margin-left: 5px;">
                     <select name="approvests" id="approvests" datatype="*" sucmsg=" "
                             style="width: 150px;">
-                        <option value="0">请选择审批状态</option>
-                        <option value="1">审批通过</option>
-                        <option value="2">审批不通过</option>
-                        <option value="3">待审批</option>
-                        <option value="4">已撤回</option>
+                        <option value="">请选择审批状态</option>
+                        <option value="1">待审批</option>
+                        <option value="2">审批通过</option>
+                        <option value="3">审批不通过</option>
                     </select>
                 </div>
                 <input name="txtStart" type="text" id="txtStart"
@@ -76,10 +77,10 @@
                         <a class="all"  onclick="checkAll(this);"><i></i><span>全选</span></a>
                     </li>
                     <li>
-                        <a class="add" onclick="return ShowAction();"><i></i><span>审批通过</span></a>
+                        <a class="add" onclick="return ShowAction(true);"><i></i><span>审批通过</span></a>
                     </li>
                     <li>
-                        <a class="add" onclick="return ShowAction();"><i></i><span>审批不通过</span></a>
+                        <a class="add" onclick="return ShowAction(false);"><i></i><span>审批不通过</span></a>
                     </li>
                     <li>
                         <a id="lbtnSearch" class="btn-search" onclick="ui_listReqInfos();"><i></i><span>查询</span></a>
@@ -102,35 +103,7 @@
     <table width="100%" border="0" cellspacing="0" cellpadding="0"
            class="ltable" id="resultgrid">
 
-        <tr>
-            <th width="5%">
-                序号
-            </th>
-            <th width="10%">
-                申请人
-            </th>
-            <th width="10%">
-                请假类型
-            </th>
-            <th align="left" width="10%">
-                请假时间
-            </th>
-            <th align="left" width="10%">
-                请假事由
-            </th>
-            <th align="left" width="10%">
-                提交时间
-            </th>
-            <th width="10%">
-                审批时间
-            </th>
-            <th width="10%">
-                审批状态
-            </th>
-            <th width="8%">
-                操作
-            </th>
-        </tr>
+
 
     </table>
 
@@ -158,7 +131,8 @@
 <!-- js -->
 <script id="recharge-tpl" type="text/template">
     <div class="tab-content">
-        <dl>
+        <h3>确定审批<span><font color="black">{#0#}</font></span>?</h3>
+        <%--<dl>
             <dt class="txt-pockge" style="width:70px" CssClass="pagenum">模板列表</dt>
             <dd style="margin:0px 10px 0 80px" class="rule-single-select">
                 <select name="listTemplates" id="listTemplates" style="height:32px;width:310px;">
@@ -170,15 +144,254 @@
             <dd style="margin:0px 10px 0 80px">
                     <textarea name="txtContent" rows="2" cols="20" id="txtContent" class="input normal">
                     </textarea>
-            </dd>
+            </dd>--%>
         </dl>
     </div>
 </script>
 <script type="text/javascript">
-    function ShowAction() {
-        var param = {'0':'模版描述'};
-        var tit = "模板选择";
-        jsdialog(tit, RpTpl($("#recharge-tpl").html(), param), "", "None", function () { }, function () { }, function () { });
+    var leaveinitial=null;
+    var leaveauditing=null;
+    var leaveover =null;
+    var leavedel =null;
+    var flowauditing=null;
+    var flowover=null;
+    var flowinvalid=null;
+    var auditauditing=null;
+    var auditpass=null;
+    var auditreject=null;
+    var audittranfer=null;
+    var page_current=1;
+    var page_size=0;
+    var page_interval=10;
+
+    function ui_listReqInfos() {
+        page_size=$("#txtPageNum").val();
+        var queryCallBack=function(reqInfos,callResult){
+            if(reqInfos!=null && reqInfos.response_code == 0){
+                $.dialog.tips("查询成功...");
+                ui_addReqInfo(reqInfos.content.result.records);
+                var htmlMsg2="";
+                htmlMsg2=OutPageListAjax(page_size, page_current, reqInfos.content.result.total_count, pageChangeCallback, page_interval);
+                $("#PageContent").html(htmlMsg2);
+                page_current=1;//need
+            }
+            if(reqInfos.response_code == -1){
+                alert(reqInfos.response_desc);
+            }
+        }
+        listReqInfos(queryCallBack);
+    }
+    function pageChangeCallback (pageid){
+        page_current=pageid;
+        ui_listReqInfos();
+    }
+    function listReqInfos(callBackList){
+        var head = {
+            "service_name":"LeaveManageService",
+            "operation_name":"queryApproveLeaveList"
+        }
+        var param = {
+            "leave_type":$("#leavests").val() ,
+            "sts":$("#approvests").val() ,
+            "audit_id":staff_id,///
+            "begin_time":$("#txtStart").val() ,
+            "end_time":$("#txtEnd").val() ,
+            "pageNum":page_current,
+            "pageSize":page_size
+        }
+
+        var myCallBack=function(data,callResult){
+            if(callBackList){
+                callBackList(data,callResult);
+            }
+        }
+        var options = {
+            "handleError": false,
+            "showProgressBar":false,
+            "timeout":60000*10
+        }
+        $.ServiceAgent.JSONInvoke(head, param, myCallBack, options);
+    }
+
+    function ui_addReqInfo(reqInfos){
+        $("#resultgrid").html("<tr>\n" +
+            "<th width=\"5%\">\n" +
+            "序号\n" +
+            "</th>\n" +
+            "<th width=\"10%\">\n"+
+            "申请人\n"+
+            "</th>\n"+
+            "<th width=\"10%\">\n" +
+            "请假类型\n" +
+            "</th>\n" +
+            "<th align=\"left\" width=\"10%\">\n" +
+            "请假时间\n" +
+            "</th>\n" +
+            "<th align=\"left\" width=\"20%\">\n" +
+            "请假事由\n" +
+            "</th>\n" +
+            "<th align=\"left\" width=\"10%\">\n" +
+            "提交时间\n" +
+            "</th>\n" +
+            "<th width=\"20%\">\n" +
+            "审批时间\n" +
+            "</th>\n" +
+            "<th width=\"10%\">\n" +
+            "审批状态\n" +
+            "</th>\n" +
+            "<th width=\"10%\">\n" +
+            "操作\n" +
+            "</th>\n" +
+            "</tr>");
+
+        for(var i=0;i<reqInfos.length;i++){
+            var reqInfo=reqInfos[i];
+//console.log($.JsonUtil.jso2json(reqInfo));
+            var htmlMsg = new StringBuffer();
+            htmlMsg.append("<tr detailId='"+ reqInfo.detailId +"' flowId='"+ reqInfo.flowId +"' leaveId='"+ reqInfo.leaveId +"'>" +
+                "<td align=\"center\">" +
+                ((page_current-1)*page_size + i + 1) +
+                "<span class=\"checkall\" style=\"vertical-align: middle;\"> " +
+                "<input type=\"checkbox\" value=\"" + reqInfo.id + "\" canAudit='"+(reqInfo.auditsts==auditauditing && reqInfo.cur_detail_id==reqInfo.detailId)+"' name=\"leave_id\" />" +
+                "</span>" +
+                "</td>");
+            htmlMsg.append("<td usrId="+reqInfo.apply_id+" align=\"center\">" +
+                    reqInfo.apply_name+ //申请人name
+                 //申请人id
+                "</td>");
+            htmlMsg.append("<td align=\"center\">" +
+                reqInfo.leave_typeTxt +
+                "</td>");
+            var strbefin =(reqInfo.begin_time==null) ? null : reqInfo.begin_time.substring(0,10);
+            var strend = (reqInfo.end_time==null) ? null : reqInfo.end_time.substring(0,10);
+            htmlMsg.append("<td align=\"center\"><span>开始时间：</span>" +
+            strbefin    + "<br/><span>结束时间：</span>" + strend +
+                "</td>");
+            htmlMsg.append("<td align=\"center\">"+
+                reqInfo.reason +
+                "</td>");
+            htmlMsg.append("<td align=\"center\">" +
+                reqInfo.create_time+//提交时间
+                "</td>");
+            var str = (reqInfo.audit_time == null) ? " " : reqInfo.audit_time;
+            htmlMsg.append("<td align=\"center\">" + str +//审批时间
+                "</td>");
+            ////////////////
+            htmlMsg.append("<td align=\"center\">");
+
+            if(reqInfo.auditsts==auditauditing && reqInfo.cur_detail_id==reqInfo.detailId) {
+                htmlMsg.append("待审批</td><td align=\"center\">");
+                htmlMsg.append("<a onclick=\"redirctAction(this)\"><font color='blue'>查看</font></a>");
+                htmlMsg.append("<a onclick=\"return PassAction(this)\"><font color='blue'>通过</font></a> ");
+                htmlMsg.append("<a onclick=\"return RejectAction(this)\"><font color='blue'>不通过</font></a></td> ");
+            } else if(reqInfo.auditsts==auditpass){
+                    htmlMsg.append("审批通过</td><td align=\"center\">");
+                    htmlMsg.append("<a onclick=\"redirctAction(this)\"><font color='blue'>查看</font></a></td> ");
+            } else if(reqInfo.auditsts==auditreject ){
+                htmlMsg.append("审批不通过</td><td align=\"center\">");
+                htmlMsg.append("<a onclick=\"redirctAction(this)\"><font color='blue'>查看</font></a></td> ");
+            } else if(reqInfo.auditsts==auditauditing && reqInfo.cur_detail_id!=reqInfo.detailId) {
+                htmlMsg.append("待审批</td><td align=\"center\">");
+                htmlMsg.append("<a onclick=\"redirctAction(this)\"><font color='blue'>查看</font></a></td> ");
+            }
+            htmlMsg.append("</td></tr>");
+            $("#resultgrid").append(htmlMsg.toString());
+        }
+    }
+    function redirctAction(e){
+        var tr = $(e).closest("tr");
+        var leaveId = tr.attr("leaveId");
+        var canaudit = tr.find("td:eq(0) input").attr("canaudit");
+         //   var name= $(tr.children()[1]).attr("name");
+        window.location.href="leavedetail.jsp?approve="+canaudit+"&leaveId="+leaveId;
+    }
+    function PassAction(e){
+        var tr = $(e).closest("tr");
+        var leaveId = tr.attr("leaveId");
+        //var name= $(tr.children()[1]).attr("name");//tr.find("td:eq(1)").attr("name");
+        if(leaveId <= 0){
+            setTimeout(function(){
+                alert("请等待！");
+                return;
+            },500);
+            return;
+        }
+        var param = {'0':'通过'};
+        var tit = "请假审批";
+        jsdialog(tit, RpTpl($("#recharge-tpl").html(), param), "", "None", function () {alert(1) },
+            function () {
+console.log(e);
+                var tr = $(e).closest("tr");
+                var detailId = tr.attr("detailId");
+                var flowId = tr.attr("flowId");
+                passAudit(detailId,flowId);
+            //alert("点击确定后")
+            },
+            function () {
+            //alert("展示弹出眶前")
+        });
+    }
+
+    function RejectAction(e){
+        var tr = $(e).closest("tr");
+        var leaveId = tr.attr("leaveId");
+        //var name= $(tr.children()[1]).attr("name");//tr.find("td:eq(1)").attr("name");
+        if(leaveId <= 0){
+            setTimeout(function(){
+                alert("请等待！");
+                return;
+            },500);
+            return;
+        }
+        var param = {'0':'不通过'};
+        var tit = "请假审批";
+        jsdialog(tit, RpTpl($("#recharge-tpl").html(), param), "", "None", function () {alert(1) },
+            function () {
+console.log(e);
+                var tr = $(e).closest("tr");
+                var detailId = tr.attr("detailId");
+                var flowId = tr.attr("flowId");
+                rejectAudit(detailId,flowId);
+                //alert("点击确定后")
+            },
+            function () {
+                //alert("展示弹出眶前")
+            });
+    }
+    function ShowAction(index) {
+        var param = null;
+        var tit = "请假审批";
+        if(index){
+            param = {'0':'通过全部'};
+        }else {
+            param = {'0':'不通过全部'};
+        }
+        jsdialog(tit, RpTpl($("#recharge-tpl").html(), param), "", "None", function () { },
+            function () {
+            var canAudit=true;
+            $.each($(".checkall input:enabled"),function(i,val){//验证
+                if(val.checked){
+                    if(val.attributes.canaudit.value=="false"){
+                        alert("有不能审批的记录");
+                        canAudit=false;
+                    }
+                }
+                });
+            if(!canAudit)return;
+            $.each($(".checkall input:enabled"),function(i,val){
+                if(val.checked){
+                    var tr = $(val).closest("tr");
+                    var detailId = tr.attr("detailId");
+                    var flowId = tr.attr("flowId");
+                    if(index){
+                        passAudit(detailId,flowId);
+                    }else {
+                        rejectAudit(detailId,flowId);
+                    }
+                }
+            });
+
+            }, function () { });
         //document.location.href="edit.html";
         // window.open("edit.html");
     }
@@ -191,96 +404,10 @@
         }
         return re;
     }
-    function ui_listReqInfos(){
-        //$("#ddWid").attr("disabled","disabled");
-        $("#ddWid").closest(".rule-single-select").ruleSingleSelect();
-        var callBack=function(reqInfos,callResult){
 
-            if(reqInfos!=null){
-                $.dialog.tips("查询成功 ...");
-                //for(var i=0;i<5;i++){
-                ui_addReqInfo(reqInfos.content.memberinfo);
-                //}
-                //var htmlMsg2="<span>共4记录</span><span class=\"disabled\">«上一页</span><span "+
-                //"class=\"current\">1</span><a href=\"index.jsp?page=2\">2</a><a "+
-                //"href=\"index.jsp?page=2\">下一页»</a>";
-                //var htmlMsg2=OutPageList(10,  1,  25,  "http://dev.zhang-men.com:8082/app/system/index.jsp?curPage=__id__",  10);
-
-                var htmlMsg2=OutPageListAjax(10,  1,  25,  pageChangeCallback,  10);
-                $("#PageContent").html(htmlMsg2);
-            }
-        }
-        //$("#resultgrid").html("");
-        listReqInfos(callBack);
-    }
-    function pageChangeCallback (pageid){
-        alert("跳转到"+pageid);
-        //	 var htmlMsg2=OutPageListAjax(10,  pageid,  25,  pageChangeCallback,  10);
-        //	$("#PageContent").html(htmlMsg2);
-    }
-    function ui_addReqInfo(reqInfos){
-        for(var i=0;i<reqInfos.length;i++){
-            var reqInfo=reqInfos[i];
-            var htmlMsg="<tr>" +
-                "<td align=\"center\">" +
-                "<span class=\"checkall\" style=\"vertical-align: middle;\"><input " +
-                "id=\"dataList_ctl01_chkId"+i+"\" type=\"checkbox\"" +
-                "name=\"dataList$ctl01$chkId\" />" +
-                "</span>" +
-                "<input type=\"hidden\" name=\"dataList$ctl01$hidId\"" +
-                "id=\"dataList_ctl01_hidId\"" +
-                "value=\"B6A0AEF5-25E6-41BB-A0D0-2DB2E4977C77\" />" +
-                "</td>" +
-                "<td align=\"center\">" +
-                reqInfo.GROUP_CODE +
-                "</td>" +
-                "<td align=\"center\">" +
-                "<a href=\"edit.html?action=Edit&id=B6A0AEF5-25E6-41BB-A0D0-2DB2E4977C77\">"+reqInfo.GROUP_NAME+"<\/a>" +
-                "</td>" +
-                "<td align=\"center\">" +
-                reqInfo.PARAM_CODE+
-                "</td>" +
-                "<td align=\"center\">" +
-                reqInfo.BEGIN_TIME+
-                "</td>" +
-                "<td align=\"center\">" +
-                reqInfo.END_TIME+
-                "</td>" +
-                "<td align=\"center\">" +
-                "<a href=\"edit.html?action=Edit&id=B6A0AEF5-25E6-41BB-A0D0-2DB2E4977C77\">修改 <\/a> " +
-                "<a id=\"dataList_ctl02_lnDeal\" href=\"\"><font color='red'>禁用</font>" +
-                "</a>" +
-                "</td>" +
-                "</tr>";
-            $("#resultgrid").append(htmlMsg);
-        }
-
-    }
-    function listReqInfos(callBackList){
-        var head = {
-            "service_name":"cn.dy.base.pcweb.system.service.MemberService",
-            "operation_name":"test"
-        }
-
-        var param = {
-            "id":$("#ddWid").val(),
-        }
-        var myCallBack=function(data,callResult){
-            //ui_enableServiceMask(false);
-            if(callBackList)callBackList(data,callResult);
-        }
-        var options = {
-            "handleError": false,
-            "showProgressBar":false,
-            "timeout":60000*10
-        }
-        //ui_enableServiceMask(true);
-        $.ServiceAgent.JSONInvoke(head, param, myCallBack, options);
-    }
     var diag;
     function ShowSaveAction(){
-        //("提示：你点击了一个按钮");
-        //Dialog.confirm('警告：您确认要XXOO吗？',function(){Dialog.alert("yeah，周末到了，正是好时候")});
+
         diag = new Dialog();
         diag.Width = 900;
         diag.Height = 400;
@@ -291,10 +418,102 @@
         //diag.OKEvent = function(){Dialog.alert("用户名不能为空")};
         diag.show();
     }
+    function passAudit(flowId, detailId){
+        var head = {
+            "service_name":"LeaveManageService",
+            "operation_name":"passAudit"
+        }
 
+        var param = {
+            "flowId":flowId,
+            "detailId":detailId
+        }
+
+        var myCallBack=function(data){
+            if(reqInfos.response_code == 0){
+                ui_listReqInfos();
+                //alert(reqInfos.response_desc);
+            }else{
+                alert("审批失败");
+            }
+        }
+        var options = {
+            "handleError": false,
+            "showProgressBar":false,
+            "timeout":60000*10
+        }
+        $.ServiceAgent.JSONInvoke(head, param, myCallBack, options);
+    }
+    function rejectAudit(flowId, detailId){
+        var head = {
+            "service_name":"LeaveManageService",
+            "operation_name":"rejectAudit"
+        }
+
+        var param = {
+            "flowId":flowId,
+            "detailId":detailId
+        }
+
+        var myCallBack=function(data){
+            if(reqInfos.response_code == 0){
+                ui_listReqInfos();
+                //alert(reqInfos.response_desc);
+            }else{
+                alert("审批失败");
+            }
+        }
+        var options = {
+            "handleError": false,
+            "showProgressBar":false,
+            "timeout":60000*10
+        }
+        $.ServiceAgent.JSONInvoke(head, param, myCallBack, options);
+    }
     $(function(){
-        //ui_listReqInfos();
+        ui_listReqInfos();
+        getSts();
     });
+    function getSts(){
+        var head = {
+            "service_name":"LeaveManageService",
+            "operation_name":"getSts"
+        }
+
+        var param = {}
+
+        var myCallBack=function(data){
+//console.log($.JsonUtil.jso2json(data.content.result));
+            data = data.content.result;
+            leaveinitial=data.leaveinitial;//0
+            leaveauditing=data.leaveauditing;//1
+            leaveover =data.leaveover;//2
+            leavedel = data.leavedel;//3
+            flowauditing=data.flowauditing;//0
+            flowover=data.flowover;//1
+            flowinvalid=data.flowinvalid;//2
+            auditauditing=data.auditauditing;//0
+            auditpass=data.auditpass;//1
+            auditreject=data.auditreject;//2
+            audittranfer=data.audittranfer;//3
+        }
+        var options = {
+            "handleError": false,
+            "showProgressBar":false,
+            "timeout":60000*10
+        }
+        $.ServiceAgent.JSONInvoke(head, param, myCallBack, options);
+    }
+    function StringBuffer() {
+        this.__strings__ = new Array();
+    }
+    StringBuffer.prototype.append = function (str) {
+        this.__strings__.push(str);
+        return this; //方便链式操作
+    }
+    StringBuffer.prototype.toString = function () {
+        return this.__strings__.join("");
+    }
 </script>
 <script type="text/javascript"
         src="/xyzg/system/common/scripts/utils.js"></script>
