@@ -1,40 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="82f20fe6-3ff4-44ac-bf8a-337b06166602" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/LeaveApplicationModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/LeaveApplicationModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/framework.log" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/framework.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/choosepage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/choosepage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/leaveadd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/leaveadd.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/leaveapprove.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/leaveapprove.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/leavedetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/leavedetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/leavemanage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/leavemanage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/seniorityquery.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/leaveapplication/seniorityquery.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/out/LeaveApplicationModule.jar" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/out/LeaveApplicationModule.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/out/production/LeaveApplicationModule/cn/dy/base/leaveapp/dao/LeaveManageDao$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/out/production/LeaveApplicationModule/cn/dy/base/leaveapp/dao/LeaveManageDao$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/out/production/LeaveApplicationModule/cn/dy/base/leaveapp/dao/LeaveManageDao$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/out/production/LeaveApplicationModule/cn/dy/base/leaveapp/dao/LeaveManageDao$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/out/production/LeaveApplicationModule/cn/dy/base/leaveapp/dao/LeaveManageDao$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/out/production/LeaveApplicationModule/cn/dy/base/leaveapp/dao/LeaveManageDao$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/dao/LeaveManageDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/dao/LeaveManageDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/dao/MemberDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/dao/MemberDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/dao/SeniorityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/dao/SeniorityDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/domain/AuditDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/domain/AuditDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/domain/AuditFlow.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/domain/AuditFlow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/domain/LeaveApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/domain/LeaveApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/domain/MemberInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/domain/MemberInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/service/LeaveManageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/service/LeaveManageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/service/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/service/SeniorityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/service/SeniorityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/support/LeaveManageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/support/LeaveManageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/support/MemberServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/support/MemberServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/support/SeniorityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/support/SeniorityServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/test/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/util/SystemUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/util/SystemUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/util/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/util/Tools.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/vo/LeaveListVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/cn/dy/base/leaveapp/vo/LeaveListVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeaveApplicationModule/src/dbpool.xml" beforeDir="false" afterPath="$PROJECT_DIR$/LeaveApplicationModule/src/dbpool.xml" afterDir="false" />
-    </list>
+    <list default="true" id="82f20fe6-3ff4-44ac-bf8a-337b06166602" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +69,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="20" />
     <option name="y" value="8" />
     <option name="width" value="1400" />
@@ -126,6 +93,12 @@
               <item name="leaveapplication" type="b2602c69:ProjectViewProjectNode" />
               <item name="leaveapplication" type="462c0819:PsiDirectoryNode" />
               <item name="LeaveApplicationModule" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="leaveapplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leaveapplication" type="462c0819:PsiDirectoryNode" />
+              <item name="LeaveApplicationModule" type="462c0819:PsiDirectoryNode" />
+              <item name="leaveapplication" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="leaveapplication" type="b2602c69:ProjectViewProjectNode" />
@@ -266,7 +239,7 @@
       <option name="presentableId" value="Default" />
       <updated>1544859308590</updated>
       <workItem from="1544859313197" duration="1555000" />
-      <workItem from="1544860915272" duration="247000" />
+      <workItem from="1544860915272" duration="1008000" />
     </task>
     <task id="LOCAL-00001" summary="哈哈哈">
       <created>1544859369537</created>
@@ -345,14 +318,21 @@
       <option name="project" value="LOCAL" />
       <updated>1544861155827</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="哈哈哈test1">
+      <created>1544861307179</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1544861307179</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1802000" />
+    <option name="totallyTimeSpent" value="2563000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="7" />

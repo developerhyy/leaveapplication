@@ -142,7 +142,11 @@
             <dd>
                 <div  class="input-date" >
                     <input name="txtbeginDate" type="text" id="begindate" class="input date Validform_error"
+<<<<<<< HEAD
                       placeholder="请选择开始时间" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" errormsg="请选择正确的日期" onblur="checkDate();" style = "width:400px"/>
+=======
+                           onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" errormsg="请选择正确的日期" onblur="checkDate();" style = "width:300px"/>
+>>>>>>> refs/remotes/origin/master
                 </div>
                 
             </dd>
@@ -153,7 +157,11 @@
             <dd>
                 <div  class="input-date" >
                     <input name="txtendDate" type="text" id="enddate" class="input date Validform_error"
+<<<<<<< HEAD
                         placeholder="请选择结束时间"   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" errormsg="请选择正确的日期" onblur="checkDate();" style = "width:400px"/>
+=======
+                           onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" errormsg="请选择正确的日期" onblur="checkDate();" style = "width:300px"/>
+>>>>>>> refs/remotes/origin/master
                 </div>
                 
             </dd>
@@ -163,8 +171,13 @@
             <dt> <span class="Validform_checktip">*</span>时长</dt>
             <dd>
                 <div style="float: left;">
+<<<<<<< HEAD
                     <input type="text" name="duration" readonly="readonly" id="duration" for="totalday" class="input normal" style="background: #f5f5f5;" />
                     <span>总可休假<span id="days" style="text-decoration: underline;margin: 0 2px;"></span>天,剩余休假天数<span id="leftday" style="margin:0 2px;text-decoration: underline;"></span>天</span>
+=======
+                    <input type="text" name="duration" readonly="readonly" id="duration" for="totalday" class="input normal" />
+                    <span>总可休假<span id="days"></span>天,剩余休假天数<span id="leftday"></span>天</span>
+>>>>>>> refs/remotes/origin/master
                 </div>
             </dd>
         </dl>
@@ -336,8 +349,16 @@
                 var myCallBack=function callBack(data) {
 console.log($.JsonUtil.jso2json(data));
                     if(data.response_code==0){
+<<<<<<< HEAD
                         var flowOldId = $("#flowOldId").val().trim();
                         submitAuditFlow(data.content.result,flowOldId);
+=======
+                        alert(data.response_desc);
+                        submitAuditFlow(data.content.result);
+                        parent.$("#leave").html("");
+                        parent.query();
+                        parent.diag.close();
+>>>>>>> refs/remotes/origin/master
                     }else{
                         alert(data.response_desc);
                     }

@@ -1,7 +1,11 @@
+<<<<<<< HEAD
     var staff_id=0;
     if(staff_id <=0){
         staff_id = loginInfo.staff_id;
     }
+=======
+
+>>>>>>> refs/remotes/origin/master
     var zTree = null;
 
     var right_click_node = {
@@ -26,8 +30,12 @@
             "operation_name":"getDeptTree"
         };
         var param={
+<<<<<<< HEAD
             "all": true,
             "staff_id":staff_id
+=======
+            "all": true
+>>>>>>> refs/remotes/origin/master
         };
         var options = {
             "handleError": false
@@ -136,7 +144,11 @@
                 if (treeNode) {
                     zTree.selectNode(treeNode, false);
                     onClickTree(treeNode);
+<<<<<<< HEAD
                     //showRMenu(treeNode, callEvent.clientX, callEvent.clientY);
+=======
+                    showRMenu(treeNode, callEvent.clientX, callEvent.clientY);
+>>>>>>> refs/remotes/origin/master
                 }
                 return true;
             }
@@ -160,12 +172,22 @@
             if (cutStr == "c") {
                 $.form("#contactForm").sleep();
                 $("#treeParentArea").show();
+<<<<<<< HEAD
                 //getStaffDetail(cutId, treeNode);
             } else {
                 $.form("#tableForm").sleep();
                 $("#treeParentArea").show();
 
 //(cutStr+"+++++++++++++===========")
+=======
+                alert(cutStr)
+                //getStaffDetail(cutId, treeNode);
+            } else {
+
+                $.form("#tableForm").sleep();
+                $("#treeParentArea").show();
+                alert(cutStr)
+>>>>>>> refs/remotes/origin/master
                 //getFunDetail(id, treeNode);
             }
         }
@@ -193,3 +215,8 @@
     }
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> refs/remotes/origin/master

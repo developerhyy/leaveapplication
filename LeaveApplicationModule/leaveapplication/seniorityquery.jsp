@@ -98,7 +98,11 @@
 
 <!-- js -->
 <script id="recharge-tpl" type="text/template">
+<<<<<<< HEAD
     <div id="role" style="width: 200px; float: left; ; height: 300px;background: #eeeeee">
+=======
+    <div id="role" style="width: 400px; float: left; ; height: 500px;background: #eeeeee">
+>>>>>>> refs/remotes/origin/master
         <div class="title">部门列表</div>
         <div id="treeParentArea" valign=top style="width: 100%;height: 500px;">
             <ul id="tree" class="ztree" style="overflow:auto;margin:0px;height:698px"></ul>
@@ -106,10 +110,10 @@
     </div>
 </script>
 <script type="text/javascript">
-
     var page_current=1;
     var page_size=0;
     var page_interval=10;
+
 
     function ui_listReqInfos() {
         page_size=$("#txtPageNum").val();
@@ -218,12 +222,23 @@
         var param = {'0':'模版描述'};
         var tit = "部门选择";
         jsdialog(tit, RpTpl($("#recharge-tpl").html(), param), "", "None", function (data) { alert(1+"=========="+data);},
+<<<<<<< HEAD
             function () {
                 $("#txtdept").attr("deptId",right_click_node.id);
                 $("#txtdept").val(right_click_node.name);
             },
             function () {
                 createTree();
+=======
+            function (data) {
+                alert(2+"=========="+data);
+                $("#txtdept").val(right_click_node.name);
+                //alert(right_click_node.name);
+            },
+            function () {
+                createTree();
+                alert(3+"==========");
+>>>>>>> refs/remotes/origin/master
             });
         //document.location.href="edit.html";
         // window.open("edit.html");
@@ -267,9 +282,20 @@
         src="/xyzg/system/common/scripts/utils.js"></script>
 <script type="text/javascript"
         src="/xyzg/system/common/scripts/zDialog.js"></script>
+<<<<<<< HEAD
 <script type="text/javascript">
     //dynamicLoading.css("../assets/css/main.css");
 </script>
 <script src="deptTreeJs.js"></script>
+=======
+<%--<script type="text/javascript"
+        src="../scripts/lhgdialog/lhgdialog.js?skin=idialog"></script>--%>
+<script type="text/javascript">
+    //dynamicLoading.css("../assets/css/main.css");
+</script>
+<script type="text/javascript" src="../scripts/zTree/js/jquery.ztree.all-3.5.min.js"></script>
+<script src="deptTreeJs.js"></script>
+<link rel="stylesheet" href="../scripts/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+>>>>>>> refs/remotes/origin/master
 </body>
 </html>

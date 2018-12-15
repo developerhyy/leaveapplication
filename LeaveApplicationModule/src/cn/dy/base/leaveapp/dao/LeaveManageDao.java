@@ -372,6 +372,7 @@ public class LeaveManageDao {
                     throw new ServiceBusinessException("已申请过此类假条","已申请过此类假条");
                 } else {
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+<<<<<<< HEAD
                     boolean isNew = false;
                     if(leaveApplication.getId() > 0){
                         id=leaveApplication.getId();
@@ -379,6 +380,9 @@ public class LeaveManageDao {
                         id=getUniqueId("SEQ_BZ_LEAVE_APPLICATION");
                         isNew=true;
                     }
+=======
+                    id = getUniqueId("SEQ_BZ_LEAVE_APPLICATION");
+>>>>>>> refs/remotes/origin/master
                     leaveApplication.setId(id);
                     leaveApplication.setCreate_time(Tools.parseDate((df.format(new Date()))));
                     leaveApplication.setSts("0");//状态:0初始1审批中2结束3删除
@@ -498,9 +502,18 @@ public class LeaveManageDao {
             public Long doInTransaction(TransactionStatus status) {
                 AuditFlow auditFlow = null;
                 if(param.getFlow_id() > 0){
+<<<<<<< HEAD
                     //无修改概念，有值就直接作废旧的建立新的
                     int i = invalidAuditFlow(param.getFlow_id());
                     int j = invalidAuditDetails(param.getFlow_id());
+=======
+                    auditFlow = getAuditFlow(param.getDetail_id());//修改
+                } else{
+
+                    auditFlow = new AuditFlow();//新建
+                    auditFlow.setId(getUniqueId("SEQ_BZ_AUDITING_FLOW"));
+                    isNew = true;
+>>>>>>> refs/remotes/origin/master
                 }
 
                 auditFlow = new AuditFlow();//新建
@@ -637,8 +650,30 @@ public class LeaveManageDao {
             throw new ServiceBusinessException("未指定审核人员", "未指定审核人员");
         return (AuditDetail) this.transactionTemplate.execute(new TransactionCallback<AuditDetail>() {
             public AuditDetail doInTransaction(TransactionStatus status) {
+<<<<<<< HEAD
                 long id = getUniqueId("SEQ_BZ_AUDITING_DETAIL");
                 auditDetail.setId(id);
+=======
+                AuditDetail auditDetail = null;
+                boolean isNew=false;
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+                if(param.getDetail_id() > 0){
+                    auditDetail = getAuditDetail(param.getDetail_id());//修改
+                } else{
+                    auditDetail = new AuditDetail();//新建
+                    auditDetail.setId(getUniqueId("SEQ_BZ_AUDITING_DETAIL"));
+                    isNew = true;
+                }
+                auditDetail.setFlow_id(param.getFlow_id());
+                if(param.getPre_id() > 0){
+                    auditDetail.setPre_id(param.getPre_id());
+                }
+                else{
+                    auditDetail.setPre_id(0);//为第一级审核详情
+                }
+                auditDetail.setAudit_id(param.getAudit_id());
+                auditDetail.setAudit_sts(param.getAudit_sts());//
+>>>>>>> refs/remotes/origin/master
                 //审核日期,审核备注在审核成功处，赋值
                 long i = addAuditDetail(auditDetail);
                 if(i<=0) throw new ServiceBusinessException("更新失败", "更新失败");
@@ -651,6 +686,7 @@ public class LeaveManageDao {
         Map<String, Object> parameters = DBUtil.getMapObj(auditDetail);
         return this.namedParameterJdbcTemplate.update("insert into bz_auditing_detail\n  (id, flow_id, pre_id, audit_id, audit_sts, create_time)\nvalues\n  (:id, :flow_id, :pre_id, :audit_id, :audit_sts, :create_time)", parameters);
     }
+<<<<<<< HEAD
 
     public Map<String,Integer> getSts() {
         Map<String,Integer> map = new HashMap<>();
@@ -737,4 +773,7 @@ public class LeaveManageDao {
     }
 
     //</editor-fold>
+=======
+    private void test(){}
+>>>>>>> refs/remotes/origin/master
 }
