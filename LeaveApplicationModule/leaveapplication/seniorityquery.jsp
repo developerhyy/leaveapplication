@@ -97,28 +97,18 @@
 
 <!-- js -->
 <script id="recharge-tpl" type="text/template">
-    <div class="tab-content">
-        <dl>
-            <dt class="txt-pockge" style="width:70px" CssClass="pagenum">模板列表</dt>
-            <dd style="margin:0px 10px 0 80px" class="rule-single-select">
-                <select name="listTemplates" id="listTemplates" style="height:32px;width:310px;">
-                </select>
-            </dd>
-        </dl>
-        <dl>
-            <dt class="txt-pockge" style="width:70px" CssClass="pagenum">{#0#}</dt>
-            <dd style="margin:0px 10px 0 80px">
-                    <textarea name="txtContent" rows="2" cols="20" id="txtContent" class="input normal">
-                    </textarea>
-            </dd>
-        </dl>
+    <div id="role" style="width: 400px; float: left; ; height: 500px;background: #eeeeee">
+        <div class="title">部门列表</div>
+        <div id="treeParentArea" valign=top style="width: 100%;height: 500px;">
+            <ul id="tree" class="ztree" style="overflow:auto;margin:0px;height:698px"></ul>
+        </div>
     </div>
 </script>
 <script type="text/javascript">
-
     var page_current=1;
     var page_size=0;
     var page_interval=10;
+
 
     function ui_listReqInfos() {
         page_size=$("#txtPageNum").val();
@@ -225,8 +215,17 @@
 
     function ShowAction() {
         var param = {'0':'模版描述'};
-        var tit = "模板选择";
-        jsdialog(tit, RpTpl($("#recharge-tpl").html(), param), "", "None", function () { }, function () { }, function () { });
+        var tit = "部门选择";
+        jsdialog(tit, RpTpl($("#recharge-tpl").html(), param), "", "None", function (data) { alert(1+"=========="+data);},
+            function (data) {
+                alert(2+"=========="+data);
+                $("#txtdept").val(right_click_node.name);
+                //alert(right_click_node.name);
+            },
+            function () {
+                createTree();
+                alert(3+"==========");
+            });
         //document.location.href="edit.html";
         // window.open("edit.html");
     }
@@ -269,12 +268,13 @@
         src="/xyzg/system/common/scripts/utils.js"></script>
 <script type="text/javascript"
         src="/xyzg/system/common/scripts/zDialog.js"></script>
-<script type="text/javascript"
-        src="../scripts/jquery/jquery-1.8.1.min.js"></script>
-<script type="text/javascript"
-        src="../scripts/lhgdialog/lhgdialog.js?skin=idialog"></script>
+<%--<script type="text/javascript"
+        src="../scripts/lhgdialog/lhgdialog.js?skin=idialog"></script>--%>
 <script type="text/javascript">
     //dynamicLoading.css("../assets/css/main.css");
 </script>
+<script type="text/javascript" src="../scripts/zTree/js/jquery.ztree.all-3.5.min.js"></script>
+<script src="deptTreeJs.js"></script>
+<link rel="stylesheet" href="../scripts/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
 </body>
 </html>

@@ -124,7 +124,7 @@ public class LeaveManageDao {
                     throw new ServiceBusinessException("已申请过此类假条","已申请过此类假条");
                 } else {
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-                    id = getUniqueId("SEQ_LEAVE_APPLICATION");
+                    id = getUniqueId("SEQ_BZ_LEAVE_APPLICATION");
                     leaveApplication.setId(id);
                     leaveApplication.setCreate_time(Tools.parseDate((df.format(new Date()))));
                     leaveApplication.setSts("0");//状态:0初始1审批中2结束3删除
@@ -226,7 +226,7 @@ public class LeaveManageDao {
                 } else{
 
                     auditFlow = new AuditFlow();//新建
-                    auditFlow.setId(getUniqueId("SEQ_AUDITING_FLOW"));
+                    auditFlow.setId(getUniqueId("SEQ_BZ_AUDITING_FLOW"));
                     isNew = true;
                 }
                 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
@@ -326,7 +326,7 @@ public class LeaveManageDao {
                     auditDetail = getAuditDetail(param.getDetail_id());//修改
                 } else{
                     auditDetail = new AuditDetail();//新建
-                    auditDetail.setId(getUniqueId("SEQ_AUDITING_DETAIL"));
+                    auditDetail.setId(getUniqueId("SEQ_BZ_AUDITING_DETAIL"));
                     isNew = true;
                 }
                 auditDetail.setFlow_id(param.getFlow_id());
@@ -358,4 +358,5 @@ public class LeaveManageDao {
         else
             return this.namedParameterJdbcTemplate.update("update bz_leave_application\n  set(flow_id=:flow_id, pre_id=:pre_id, audit_id=:audit_id, audit_sts=:audit_sts, create_time=:create_time)\n where \n  id=:id ", parameters);//audit_time=:audit_time, audit_remark=:audit_remark,
     }
+    private void test(){}
 }
