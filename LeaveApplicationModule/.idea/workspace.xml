@@ -11,9 +11,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ee59cd49-0001-4af0-8c81-233822c2cfbd" name="Default" comment="git">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leaveapplication/leaveadd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/leaveapplication/leaveadd.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/LeaveApplicationModule.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/LeaveApplicationModule.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LeaveApplicationModule/cn/dy/base/leaveapp/dao/LeaveManageDao$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeaveApplicationModule/cn/dy/base/leaveapp/dao/LeaveManageDao$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LeaveApplicationModule/cn/dy/base/leaveapp/dao/LeaveManageDao$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeaveApplicationModule/cn/dy/base/leaveapp/dao/LeaveManageDao$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LeaveApplicationModule/cn/dy/base/leaveapp/dao/LeaveManageDao$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeaveApplicationModule/cn/dy/base/leaveapp/dao/LeaveManageDao$7.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cn/dy/base/leaveapp/dao/LeaveManageDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/dy/base/leaveapp/dao/LeaveManageDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../xyzg/material.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../xyzg/material.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,15 +35,16 @@
     <session id="1018317838">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.35" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.39" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="211" />
+          <entry key="java" value="240" />
           <entry key="js" value="62" />
           <entry key="jsp" value="889" />
           <entry key="txt" value="3" />
@@ -49,7 +52,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="211" />
+          <entry key="JAVA" value="240" />
           <entry key="JSP" value="889" />
           <entry key="JavaScript" value="62" />
           <entry key="PLAIN_TEXT" value="3" />
@@ -80,15 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/leaveapplication/leaveadd.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-114">
-              <caret line="259" column="26" lean-forward="true" selection-start-line="259" selection-start-column="26" selection-end-line="259" selection-end-column="26" />
-              <folding>
-                <element signature="e#7872#8459#0#HTML" />
-                <element signature="e#8492#8600#0#HTML" />
-                <element signature="e#9788#10410#0#HTML" />
-                <element signature="e#11570#12967#0#HTML" />
-                <element signature="e#16595#16649#0#HTML" />
-              </folding>
+            <state relative-caret-position="7770">
+              <caret line="259" column="26" selection-start-line="259" selection-start-column="26" selection-end-line="259" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -96,11 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/leaveapplication/seniorityquery.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
+            <state relative-caret-position="8310">
               <caret line="277" column="93" selection-start-line="277" selection-start-column="93" selection-end-line="277" selection-end-column="93" />
-              <folding>
-                <element signature="e#8585#8862#0#HTML" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -108,7 +101,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/leaveapplication/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1162">
+            <state relative-caret-position="630">
               <caret line="21" column="24" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="24" />
             </state>
           </provider>
@@ -119,12 +112,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret column="17" selection-start-column="17" selection-end-column="17" />
-              <folding>
-                <element signature="e#5190#5836#0#HTML" />
-                <element signature="e#6140#6941#0#HTML" />
-                <element signature="e#6979#9777#0#HTML" />
-                <element signature="e#10469#10709#0#HTML" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -132,15 +119,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/leaveapplication/deptTreeJs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
+            <state relative-caret-position="5730">
               <caret line="191" selection-start-line="191" selection-end-line="191" />
-              <folding>
-                <element signature="e#1470#1574#0" />
-                <element signature="e#1625#1728#0" />
-                <element signature="e#1828#4072#0" />
-                <element signature="e#4123#4722#0" />
-                <element signature="e#4749#5538#0" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -148,7 +128,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cn/dy/base/leaveapp/test/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
+            <state relative-caret-position="2010">
               <caret line="85" selection-start-line="85" selection-end-line="85" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -160,7 +140,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cn/dy/base/leaveapp/dao/SeniorityDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
+            <state relative-caret-position="6510">
               <caret line="250" column="23" selection-start-line="250" selection-start-column="23" selection-end-line="250" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -172,7 +152,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cn/dy/base/leaveapp/support/SeniorityServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
+            <state relative-caret-position="1770">
               <caret line="66" selection-start-line="66" selection-end-line="66" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -184,8 +164,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cn/dy/base/leaveapp/dao/LeaveManageDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="328" column="73" selection-start-line="328" selection-start-column="73" selection-end-line="328" selection-end-column="73" />
+            <state relative-caret-position="344">
+              <caret line="360" column="25" selection-start-line="360" selection-start-column="25" selection-end-line="360" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -196,7 +176,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/../nzjy/web/WEB-INF/lib/org.springframework.transaction-3.1.1.RELEASE.jar!/org/springframework/dao/support/DataAccessUtils.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
+            <state relative-caret-position="720">
               <caret line="34" column="52" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="52" />
             </state>
           </provider>
@@ -331,8 +311,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -348,12 +328,12 @@
             <path>
               <item name="LeaveApplicationModule" type="b2602c69:ProjectViewProjectNode" />
               <item name="LeaveApplicationModule" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+              <item name="leaveapplication" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LeaveApplicationModule" type="b2602c69:ProjectViewProjectNode" />
               <item name="LeaveApplicationModule" type="462c0819:PsiDirectoryNode" />
-              <item name="leaveapplication" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LeaveApplicationModule" type="b2602c69:ProjectViewProjectNode" />
@@ -407,7 +387,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544370510577" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544852225400" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -523,7 +503,8 @@
       <workItem from="1544094135691" duration="3516000" />
       <workItem from="1544145624608" duration="25162000" />
       <workItem from="1544253536274" duration="11280000" />
-      <workItem from="1544329311566" duration="20907000" />
+      <workItem from="1544329311566" duration="21017000" />
+      <workItem from="1544851196301" duration="1025000" />
     </task>
     <task id="LOCAL-00001" summary="git">
       <created>1544366770202</created>
@@ -546,17 +527,24 @@
       <option name="project" value="LOCAL" />
       <updated>1544369184042</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="git">
+      <created>1544370555467</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1544370555467</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="274483000" />
+    <option name="totallyTimeSpent" value="275618000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49509802" visible="true" weight="0.15884861" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49509802" visible="true" weight="0.16044776" />
       <window_info id="Structure" order="1" sideWeight="0.50490195" side_tool="true" weight="0.21641791" />
       <window_info id="Designer" order="2" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -577,11 +565,11 @@
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="CheckStyle" order="11" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
-      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="13" sideWeight="0.4989339" visible="true" weight="0.32899022" />
       <window_info anchor="bottom" id="JRebel Executor" order="14" />
       <window_info anchor="bottom" id="JRebel Console" order="15" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="16" visible="true" weight="0.3257329" />
-      <window_info anchor="bottom" id="Event Log" order="17" sideWeight="0.50074625" side_tool="true" weight="0.32891566" />
+      <window_info anchor="bottom" id="Event Log" order="17" sideWeight="0.5010661" side_tool="true" visible="true" weight="0.32899022" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -595,6 +583,32 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -842,9 +856,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
           <caret line="42" column="39" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -933,9 +944,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="92" column="19" selection-start-line="92" selection-start-column="19" selection-end-line="92" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -988,9 +996,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-323">
           <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1069,9 +1074,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="960">
           <caret line="36" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="e#943#944#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1079,9 +1081,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="e#610#611#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1092,62 +1091,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/../nzjy/web/WEB-INF/lib/org.springframework.transaction-3.1.1.RELEASE.jar!/org/springframework/dao/support/DataAccessUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="34" column="52" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cn/dy/base/leaveapp/support/SeniorityServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cn/dy/base/leaveapp/test/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jsp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6557" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cn/dy/base/leaveapp/dao/SeniorityDao.java">
+    <entry file="file://$PROJECT_DIR$/leaveapplication/leaveadd.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="250" column="23" selection-start-line="250" selection-start-column="23" selection-end-line="250" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leaveapplication/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1162">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="24" />
+        <state relative-caret-position="7770">
+          <caret line="259" column="26" selection-start-line="259" selection-start-column="26" selection-end-line="259" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leaveapplication/seniorityquery.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
+        <state relative-caret-position="8310">
           <caret line="277" column="93" selection-start-line="277" selection-start-column="93" selection-end-line="277" selection-end-column="93" />
-          <folding>
-            <element signature="e#8585#8862#0#HTML" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leaveapplication/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1155,47 +1121,57 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="17" selection-start-column="17" selection-end-column="17" />
-          <folding>
-            <element signature="e#5190#5836#0#HTML" />
-            <element signature="e#6140#6941#0#HTML" />
-            <element signature="e#6979#9777#0#HTML" />
-            <element signature="e#10469#10709#0#HTML" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leaveapplication/deptTreeJs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
+        <state relative-caret-position="5730">
           <caret line="191" selection-start-line="191" selection-end-line="191" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/dy/base/leaveapp/test/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2010">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
           <folding>
-            <element signature="e#1470#1574#0" />
-            <element signature="e#1625#1728#0" />
-            <element signature="e#1828#4072#0" />
-            <element signature="e#4123#4722#0" />
-            <element signature="e#4749#5538#0" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leaveapplication/leaveadd.jsp">
+    <entry file="file://$PROJECT_DIR$/src/cn/dy/base/leaveapp/dao/SeniorityDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-114">
-          <caret line="259" column="26" lean-forward="true" selection-start-line="259" selection-start-column="26" selection-end-line="259" selection-end-column="26" />
+        <state relative-caret-position="6510">
+          <caret line="250" column="23" selection-start-line="250" selection-start-column="23" selection-end-line="250" selection-end-column="23" />
           <folding>
-            <element signature="e#7872#8459#0#HTML" />
-            <element signature="e#8492#8600#0#HTML" />
-            <element signature="e#9788#10410#0#HTML" />
-            <element signature="e#11570#12967#0#HTML" />
-            <element signature="e#16595#16649#0#HTML" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/dy/base/leaveapp/support/SeniorityServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1770">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../nzjy/web/WEB-INF/lib/org.springframework.transaction-3.1.1.RELEASE.jar!/org/springframework/dao/support/DataAccessUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="34" column="52" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cn/dy/base/leaveapp/dao/LeaveManageDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="328" column="73" selection-start-line="328" selection-start-column="73" selection-end-line="328" selection-end-column="73" />
+        <state relative-caret-position="344">
+          <caret line="360" column="25" selection-start-line="360" selection-start-column="25" selection-end-line="360" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

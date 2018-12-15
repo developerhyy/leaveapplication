@@ -358,4 +358,5 @@ public class LeaveManageDao {
         else
             return this.namedParameterJdbcTemplate.update("update bz_leave_application\n  set(flow_id=:flow_id, pre_id=:pre_id, audit_id=:audit_id, audit_sts=:audit_sts, create_time=:create_time)\n where \n  id=:id ", parameters);//audit_time=:audit_time, audit_remark=:audit_remark,
     }
+    private void test(){}
 }
